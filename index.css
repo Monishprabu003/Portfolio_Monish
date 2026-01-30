@@ -1,17 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-    --primary: #6366f1;
-    --primary-light: #818cf8;
-    --secondary: #a855f7;
-    --accent: #22d3ee;
-    --bg-dark: #020617;
-    /* Even darker for better contrast */
-    --bg-card: rgba(30, 41, 59, 0.5);
-    --text-main: #f8fafc;
-    --text-muted: #94a3b8;
-    --glass: rgba(15, 23, 42, 0.6);
-    --border: rgba(255, 255, 255, 0.08);
+    --primary: #4f46e5;
+    --primary-light: #6366f1;
+    --secondary: #9333ea;
+    --accent: #0891b2;
+    --bg-dark: #ffffff;
+    --bg-card: #f8fafc;
+    --text-main: #0f172a;
+    --text-muted: #475569;
+    --glass: rgba(255, 255, 255, 0.8);
+    --border: rgba(15, 23, 42, 0.08);
     --transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
@@ -56,12 +55,13 @@ h4 {
 .bg-gradient::after {
     content: '';
     position: absolute;
-    width: 50vw;
-    height: 50vw;
+    width: 60vw;
+    height: 60vw;
     border-radius: 50%;
-    filter: blur(100px);
+    filter: blur(120px);
     z-index: -1;
-    opacity: 0.15;
+    opacity: 0.1;
+    /* Reduced for light mode */
     animation: float-circles 20s infinite alternate;
 }
 
@@ -112,18 +112,18 @@ header {
     top: 0;
     width: 100%;
     z-index: 1000;
-    background: rgba(15, 23, 42, 0.4);
-    backdrop-filter: blur(8px);
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border);
     padding: 1.25rem 0;
     transition: var(--transition);
 }
 
 header.scrolled {
-    background: rgba(15, 23, 42, 0.85);
+    background: rgba(255, 255, 255, 0.9);
     backdrop-filter: blur(16px);
     padding: 0.8rem 0;
-    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
 }
 
 nav {
@@ -215,7 +215,7 @@ nav {
     font-size: clamp(3rem, 8vw, 5rem);
     line-height: 1.1;
     margin-bottom: 1.5rem;
-    background: linear-gradient(to bottom, #fff 30%, #94a3b8);
+    background: linear-gradient(to bottom, #0f172a 30%, #475569);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -324,9 +324,42 @@ section {
 }
 
 .card:hover {
-    border-color: rgba(99, 102, 241, 0.4);
+    border-color: var(--primary);
     transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
+}
+
+/* Social Sidebar */
+.social-sidebar {
+    position: fixed;
+    bottom: 0;
+    left: 50px;
+    z-index: 1001;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    animation: fadeInUp 2s ease;
+}
+
+.social-sidebar a {
+    color: var(--text-main);
+    font-size: 1.4rem;
+    transition: var(--transition);
+    text-decoration: none;
+}
+
+.social-sidebar a:hover {
+    color: var(--primary);
+    transform: translateY(-5px);
+}
+
+.social-sidebar::after {
+    content: '';
+    width: 2px;
+    height: 150px;
+    background: var(--text-main);
+    margin-top: 0.5rem;
 }
 
 /* Education & Experience */
