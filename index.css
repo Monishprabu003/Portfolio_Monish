@@ -348,10 +348,11 @@ section {
     font-weight: 700;
     font-family: 'Outfit', sans-serif;
     letter-spacing: 4px;
-    font-size: 1rem;
+    font-size: 1.1rem;
     text-transform: uppercase;
-    writing-mode: vertical-rl;
-    margin-bottom: 1rem;
+    transform: rotate(-90deg);
+    white-space: nowrap;
+    margin-bottom: 4rem;
     transition: var(--transition);
     opacity: 0.8;
 }
