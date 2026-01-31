@@ -331,15 +331,23 @@ section {
 /* Social Sidebar */
 .social-sidebar {
     position: fixed;
-    top: 55%;
-    left: 30px;
-    transform: translateY(-50%);
+    bottom: 0;
+    left: 40px;
     z-index: 1001;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 2rem;
     animation: fadeInUp 2s ease;
+}
+
+.social-sidebar::after {
+    content: '';
+    width: 2px;
+    height: 100px;
+    background: var(--text-main);
+    margin-top: 0.5rem;
+    opacity: 0.8;
 }
 
 .sidebar-text {
