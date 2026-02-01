@@ -18,10 +18,9 @@
 
 body {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    background-color: var(--bg-black);
+    background: linear-gradient(to right, var(--bg-black) 50%, var(--bg-white) 50%);
     color: var(--text-main);
     overflow-x: hidden;
-    height: 100vh;
 }
 
 /* Header */
@@ -79,24 +78,13 @@ nav {
     font-size: 1rem;
 }
 
-/* Hero Section / Split Layout */
 .hero {
     height: 100vh;
     width: 100vw;
     display: flex;
     position: relative;
-}
-
-.split-left {
-    width: 50%;
-    background-color: var(--bg-black);
-    height: 100%;
-}
-
-.split-right {
-    width: 50%;
-    background-color: var(--bg-white);
-    height: 100%;
+    background: transparent;
+    padding: 0;
 }
 
 .hero-box-container {
@@ -278,7 +266,6 @@ nav {
 /* Sections (Standard Scrolling Content below hero) */
 section {
     padding: 8rem 2rem;
-    background: var(--bg-white);
     color: var(--text-dark);
 }
 
