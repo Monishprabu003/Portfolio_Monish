@@ -4,8 +4,9 @@
     --primary: #ffffff;
     --text-main: #ffffff;
     --text-dark: #000000;
-    --bg-black: #000000;
-    --bg-white: #ffffff;
+    --bg-black: #ffffff;
+    /* Flipped for black text visibility */
+    --bg-white: #000000;
     --border-color: rgba(255, 255, 255, 0.8);
     --transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
@@ -74,10 +75,10 @@ nav {
     width: 65%;
     max-width: 1000px;
     height: 55%;
-    border: 1px solid var(--text-main);
+    border: 1px solid #777;
+    /* Subtle border */
     display: flex;
     z-index: 10;
-    overflow: hidden;
 }
 
 .hero-text-side {
@@ -95,16 +96,24 @@ nav {
 .section-header h2,
 .section-header p,
 p,
+a,
+i,
 .say-hi,
 .vertical-text,
 .bottom-link,
 .logo {
-    background: linear-gradient(to right, #ffffff 50%, #000000 50%) fixed;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
-    /* Fallback */
+    color: #ffffff;
+    mix-blend-mode: difference;
+    z-index: 10;
+}
+
+.hero-text-side {
+    width: 60%;
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 2;
 }
 
 .hero-text-side h1 {
