@@ -51,7 +51,7 @@ nav {
 }
 
 .say-hi {
-    color: var(--text-dark);
+    color: #ffffff;
     text-decoration: none;
     font-weight: 500;
     font-size: 1rem;
@@ -94,10 +94,7 @@ nav {
 .section-header h2,
 .section-header p,
 p {
-    background: linear-gradient(to right, #ffffff 50%, #000000 50%) fixed;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #ffffff;
 }
 
 .hero-text-side h1 {
@@ -182,7 +179,7 @@ p {
 }
 
 .sidebar-right .vertical-text {
-    color: var(--text-dark);
+    color: #ffffff;
     margin-bottom: 10rem;
 }
 
@@ -230,7 +227,7 @@ p {
 }
 
 .split-right-link {
-    color: var(--text-dark);
+    color: #ffffff;
 }
 
 /* Animations */
