@@ -107,7 +107,7 @@ nav {
 .hero-text-side p {
     font-size: 1.1rem;
     line-height: 1.6;
-    color: #cccccc;
+    color: #ffffff;
     max-width: 450px;
 }
 
@@ -163,7 +163,7 @@ nav {
     margin-bottom: 3.5rem;
     font-size: 0.95rem;
     letter-spacing: 1px;
-    opacity: 0.8;
+    opacity: 1;
     transition: var(--transition);
 }
 
