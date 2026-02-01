@@ -81,12 +81,13 @@ nav {
 }
 
 .hero-text-side {
-    width: 50%;
+    width: 60%;
+    /* Allow more room for text */
     padding: 4rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background: var(--bg-black);
+    z-index: 2;
 }
 
 .hero-text-side h1,
@@ -127,11 +128,14 @@ p,
 }
 
 .hero-image-side {
+    position: absolute;
+    right: 0;
     width: 50%;
-    background-color: var(--bg-white);
+    height: 100%;
     display: flex;
     align-items: flex-end;
     justify-content: center;
+    z-index: 1;
 }
 
 .hero-image-side img {
