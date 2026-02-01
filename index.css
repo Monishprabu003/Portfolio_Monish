@@ -4,9 +4,8 @@
     --primary: #ffffff;
     --text-main: #ffffff;
     --text-dark: #000000;
-    --bg-black: #000000;
-    --bg-white: #f8f6f2;
-    /* Off-white from image */
+    --bg-black: #4B4453;
+    --bg-white: #B0A8B9;
     --border-color: rgba(255, 255, 255, 0.8);
     --transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
