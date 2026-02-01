@@ -221,12 +221,7 @@ nav {
     background: var(--primary);
 }
 
-.yin-yang-icon {
-    font-size: 5rem;
-    color: var(--text-dark);
-    margin-bottom: 5rem;
-    margin-right: 2rem;
-}
+
 
 /* Bottom Nav Links */
 .bottom-links {
