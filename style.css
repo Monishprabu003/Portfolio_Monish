@@ -10,6 +10,20 @@
     box-sizing: border-box;
 }
 
+.logo {
+    position: fixed;
+    top: 2rem;
+    left: 3rem;
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    z-index: 100;
+    mix-blend-mode: difference;
+    pointer-events: none;
+    letter-spacing: 2px;
+}
+
 body {
     background-color: var(--bg-left);
     overflow: hidden;
@@ -51,7 +65,8 @@ body {
     display: flex;
 }
 
-.left-content {
+.left-content,
+.right-content {
     width: 50%;
     height: 100%;
     display: flex;
@@ -60,18 +75,79 @@ body {
     padding: 2rem;
 }
 
-.white-border-box {
-    border: 3px solid #ffffff;
+.right-content {
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.white-border-box,
+.black-border-box {
     padding: 4rem;
-    color: #ffffff;
     max-width: 650px;
     width: 90%;
-    background: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(10px);
     display: flex;
     flex-direction: column;
     gap: 0rem;
     font-family: 'Outfit', sans-serif;
+    backdrop-filter: blur(10px);
+}
+
+.white-border-box {
+    border: 3px solid #ffffff;
+    color: #ffffff;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.black-border-box {
+    border: 3px solid #000000;
+    color: #000000;
+    background: rgba(255, 255, 255, 0.7);
+}
+
+/* My Skills Link Styling (Matching Reference Image) */
+.my-skills-btn {
+    position: absolute;
+    bottom: 3rem;
+    left: 75%;
+    transform: translateX(-50%);
+    font-size: 2.5rem;
+    font-weight: 500;
+    color: #000000;
+    text-decoration: none;
+    font-family: 'Outfit', sans-serif;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+/* Back Arrow Button (Skills Page) */
+.back-arrow-btn {
+    position: fixed;
+    top: 4rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 60px;
+    background: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 1.8rem;
+    color: #000000;
+    z-index: 1000;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.back-arrow-btn:hover {
+    transform: translateX(-50%) scale(1.1);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.back-arrow-btn:active {
+    transform: translateX(-50%) scale(0.95);
 }
 
 .hi-text {
@@ -79,7 +155,16 @@ body {
     font-weight: 800;
     line-height: 1;
     margin-bottom: 0.5rem;
+}
+
+.white-border-box .hi-text,
+.white-border-box .name-text {
     color: #ffffff;
+}
+
+.black-border-box .hi-text,
+.black-border-box .name-text {
+    color: #000000;
 }
 
 .name-text {
@@ -87,24 +172,90 @@ body {
     font-weight: 600;
     line-height: 1.1;
     margin-bottom: 2rem;
-    color: #ffffff;
     text-transform: none;
-    /* Reference image is not all caps */
-}
-
-/* Hiding role text as it's not in the reference image, or styling it very subtly */
-.role-text {
-    display: none;
 }
 
 .profile-text {
     font-size: 1.8rem;
     font-weight: 400;
     line-height: 1.4;
-    color: #999999;
-    /* Gray color from reference image */
     text-align: left;
     margin-top: 0.5rem;
+}
+
+.white-border-box .profile-text {
+    color: #999999;
+}
+
+.black-border-box .profile-text {
+    color: #444444;
+}
+
+/* Get in Touch Section Styling */
+.contact-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.contact-main-icon {
+    font-size: 2.5rem;
+    color: #a855f7;
+    /* Purple icon color logic from reference image */
+}
+
+.contact-title {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #000000;
+    margin: 0;
+}
+
+.contact-subtitle {
+    font-size: 1.4rem;
+    color: #555555;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.contact-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.c-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: #1a1a1a;
+    /* Very dark background from reference image */
+    color: #ffffff;
+    text-decoration: none;
+    padding: 1rem 2rem;
+    border-radius: 0.8rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.c-btn i {
+    font-size: 1.4rem;
+}
+
+.c-btn.linkedin i {
+    color: #0077b5;
+    /* LinkedIn Blue Logo */
+}
+
+.c-btn:hover {
+    transform: translateY(-5px);
+    background: #333333;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 /* Custom Cursor */
@@ -121,8 +272,163 @@ body {
     transition: width 0.3s, height 0.3s, transform 0.1s;
 }
 
+/* Skills Page Specific Styling */
+.skills-page-container {
+    padding: 2rem 4rem;
+    width: 100%;
+    max-width: 1100px;
+    height: 100%;
+    overflow-y: auto;
+    scrollbar-width: none;
+    /* Hide scrollbar for clean look */
+}
+
+.skills-page-container::-webkit-scrollbar {
+    display: none;
+}
+
+.skills-main-title {
+    font-size: 2.2rem;
+    color: #ffffff;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    margin-bottom: 3rem;
+}
+
+.skills-section {
+    margin-bottom: 2.5rem;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 1.1rem;
+    font-weight: 800;
+    font-family: 'Outfit', sans-serif;
+    letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+}
+
+.section-header i {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.frontend-header {
+    color: #FF7E67;
+}
+
+.backend-header {
+    color: #7B68EE;
+}
+
+.db-header {
+    color: #FFD700;
+}
+
+.lang-header {
+    color: #32CD32;
+}
+
+.tools-header {
+    color: #00BFFF;
+}
+
+.extras-header {
+    color: #FF69B4;
+}
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+}
+
+.skill-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: #ffffff;
+    font-size: 1.3rem;
+    font-weight: 600;
+    font-family: 'Outfit', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.skill-item i {
+    font-size: 1.5rem;
+}
+
+.skill-item:hover {
+    transform: translateY(-3px);
+    opacity: 0.8;
+}
+
+/* Logo Cloud (White Background Side) */
+.logo-cloud {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.floating-logo {
+    position: absolute;
+    opacity: 0.4;
+    transition: all 0.5s ease;
+    animation: floating 6s ease-in-out infinite;
+}
+
+.floating-logo:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+@keyframes floating {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    33% {
+        transform: translate(15px, -20px) rotate(2deg);
+    }
+
+    66% {
+        transform: translate(-10px, 15px) rotate(-2deg);
+    }
+
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+}
+
+/* Staggered animation delays for the logos */
+.floating-logo:nth-child(2n) {
+    animation-duration: 7s;
+    animation-delay: 1s;
+}
+
+.floating-logo:nth-child(3n) {
+    animation-duration: 8s;
+    animation-delay: 2s;
+}
+
+.floating-logo:nth-child(4n) {
+    animation-duration: 9s;
+    animation-delay: 0.5s;
+}
+
 @media (max-width: 768px) {
-    .split-bg {
-        flex-direction: column;
+    .skills-list {
+        gap: 1.5rem;
+    }
+
+    .skill-item {
+        font-size: 1.1rem;
+    }
+
+    .floating-logo {
+        opacity: 0.1;
     }
 }
