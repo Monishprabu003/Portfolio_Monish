@@ -247,14 +247,43 @@ body {
     font-size: 1.4rem;
 }
 
-.c-btn.linkedin i {
-    color: #0077b5;
-    /* LinkedIn Blue Logo */
+.c-btn.email {
+    background: #8B5CF6;
+    /* Premium Purple/Indigo */
+    border-color: #8B5CF6;
+}
+
+.c-btn.email:hover {
+    background: #7C3AED;
+}
+
+.c-btn.linkedin {
+    background: #0077b5;
+    border-color: #0077b5;
+}
+
+.c-btn.linkedin:hover {
+    background: #005e93;
+}
+
+.c-btn.github {
+    background: #2EA043;
+    /* Light Green */
+    border-color: #2EA043;
+}
+
+.c-btn.github:hover {
+    background: #238636;
+}
+
+.c-btn.email i,
+.c-btn.linkedin i,
+.c-btn.github i {
+    color: #ffffff;
 }
 
 .c-btn:hover {
     transform: translateY(-5px);
-    background: #333333;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
