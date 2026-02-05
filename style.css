@@ -317,11 +317,12 @@ body {
 }
 
 .skills-main-title {
-    font-size: 2.2rem;
+    font-size: 3.0rem;
     color: #ffffff;
     font-family: 'Outfit', sans-serif;
-    font-weight: 700;
-    margin-bottom: 3rem;
+    font-weight: 800;
+    margin-bottom: 4rem;
+    letter-spacing: 2px;
 }
 
 .skills-section {
@@ -331,17 +332,17 @@ body {
 .section-header {
     display: flex;
     align-items: center;
-    gap: 0.8rem;
-    font-size: 1.1rem;
-    font-weight: 800;
+    gap: 1rem;
+    font-size: 1.6rem;
+    font-weight: 350;
     font-family: 'Outfit', sans-serif;
-    letter-spacing: 1px;
-    margin-bottom: 1.5rem;
+    letter-spacing: 2px;
+    margin-bottom: 2rem;
 }
 
 .section-header i {
-    font-size: 0.9rem;
-    opacity: 0.8;
+    font-size: 1.2rem;
+    opacity: 0.9;
 }
 
 .frontend-header {
@@ -371,22 +372,22 @@ body {
 .skills-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 2.5rem;
+    gap: 3.5rem;
 }
 
 .skill-item {
     display: flex;
     align-items: center;
-    gap: 0.8rem;
+    gap: 0.5rem;
     color: #ffffff;
-    font-size: 1.3rem;
-    font-weight: 600;
+    font-size: 1.8rem;
+    font-weight: 400;
     font-family: 'Outfit', sans-serif;
     transition: all 0.3s ease;
 }
 
 .skill-item i {
-    font-size: 1.5rem;
+    font-size: 2.2rem;
 }
 
 .skill-item:hover {
