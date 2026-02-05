@@ -404,14 +404,15 @@ body {
 
 .floating-logo {
     position: absolute;
-    opacity: 0.4;
-    transition: all 0.5s ease;
+    opacity: 1;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     animation: floating 6s ease-in-out infinite;
+    cursor: pointer;
 }
 
 .floating-logo:hover {
-    opacity: 1;
-    transform: scale(1.1);
+    transform: scale(1.2);
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.15));
 }
 
 @keyframes floating {
