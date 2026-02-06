@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Dancing+Script:wght@700&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <a href="index.html" class="back-arrow-btn">
+        <i class="fa-solid fa-arrow-left"></i>
+    </a>
+    <div class="split-container">
+        <div class="split-bg">
+            <div class="left-side"></div>
+            <div class="right-side"></div>
+        </div>
+        <main class="content">
+            <div class="left-content">
+                <div class="about-page-container">
+                    <h1 class="about-main-title">ABOUT ME</h1>
+
+                    <div class="about-sections">
+                        <div class="about-card">
+                            <h3 class="about-section-title"><i class="fa-solid fa-user"></i> My Journey</h3>
+                            <p class="about-text">I am a passionate Software Developer based in India, specializing in
+                                building robust web applications and solving complex architectural challenges. With a
+                                focus on performance and user experience, I translate creative ideas into functional
+                                reality.</p>
+                        </div>
+
+                        <div class="about-card">
+                            <h3 class="about-section-title"><i class="fa-solid fa-graduation-cap"></i> Education</h3>
+                            <p class="about-text">Bachelor of Technology in Computer Science & Engineering. Constant
+                                learner, staying updated with the latest industry trends and emerging technologies.</p>
+                        </div>
+
+                        <div class="about-card">
+                            <h3 class="about-section-title"><i class="fa-solid fa-heart"></i> Interests</h3>
+                            <p class="about-text">When I'm not coding, you can find me exploring new tech stacks,
+                                contributing to open-source projects, or perfecting my design skills to create more
+                                intuitive interfaces.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="right-content">
+                <div class="hero-image-container">
+                    <div class="globe-wrapper">
+                        <div class="globe-container" id="about-globe">
+                            <!-- About Icons -->
+                            <i class="fa-solid fa-graduation-cap floating-logo" style="color: #61DAFB;"></i>
+                            <i class="fa-solid fa-code-branch floating-logo" style="color: #ffffff;"></i>
+                            <i class="fa-solid fa-mug-hot floating-logo" style="color: #2EA043;"></i>
+                            <i class="fa-solid fa-mountain floating-logo" style="color: #FF7E67;"></i>
+                            <i class="fa-solid fa-book-open floating-logo" style="color: #336711;"></i>
+                            <i class="fa-solid fa-camera floating-logo" style="color: #00BFFF;"></i>
+                            <i class="fa-solid fa-globe-asia floating-logo" style="color: #FFD700;"></i>
+                            <i class="fa-solid fa-puzzle-piece floating-logo" style="color: #8B5CF6;"></i>
+                            <i class="fa-solid fa-music floating-logo" style="color: #00d2ff;"></i>
+                            <i class="fa-solid fa-gamepad floating-logo" style="color: #FF4500;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        function positionLogosInSphere() {
+            const container = document.querySelector('#about-globe');
+            if (!container) return;
+            const logos = container.querySelectorAll('.floating-logo');
+            const count = logos.length;
+            const radius = 220;
+
+            logos.forEach((logo, i) => {
+                const phi = Math.acos(-1 + (2 * i) / count);
+                const theta = Math.sqrt(count * Math.PI) * phi;
+
+                const x = radius * Math.cos(theta) * Math.sin(phi);
+                const y = radius * Math.sin(theta) * Math.sin(phi);
+                const z = radius * Math.cos(phi);
+
+                logo.style.left = '50%';
+                logo.style.top = '50%';
+                logo.style.transform = `translate3d(calc(-50% + ${x}px), calc(-50% + ${y}px), ${z}px)`;
+            });
+        }
+
+        window.addEventListener('load', positionLogosInSphere);
+        window.addEventListener('resize', positionLogosInSphere);
+    </script>
+</body>
+
+</html>
