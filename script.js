@@ -2,15 +2,30 @@ document.addEventListener('DOMContentLoaded', () => {
     // Custom Cursor
     const cursor = document.createElement('div');
     cursor.classList.add('custom-cursor');
+    cursor.innerHTML = '<i class="fa-solid fa-location-arrow"></i>';
     document.body.appendChild(cursor);
 
     document.addEventListener('mousemove', (e) => {
         cursor.style.left = e.clientX + 'px';
         cursor.style.top = e.clientY + 'px';
+
+        // Detect if hovering over a clickable element
+        const target = e.target;
+        const isClickable = target.closest('a') ||
+            target.closest('button') ||
+            window.getComputedStyle(target).cursor === 'pointer';
+
+        if (isClickable) {
+            cursor.innerHTML = '<i class="fa-solid fa-hand-pointer"></i>';
+            cursor.classList.add('pointer-active');
+        } else {
+            cursor.innerHTML = '<i class="fa-solid fa-location-arrow"></i>';
+            cursor.classList.remove('pointer-active');
+        }
     });
 
     document.addEventListener('mousedown', () => {
-        cursor.style.transform = 'scale(1.5)';
+        cursor.style.transform = 'scale(1.2)';
     });
 
     document.addEventListener('mouseup', () => {

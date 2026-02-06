@@ -153,10 +153,9 @@
             const container = document.querySelector('.globe-container');
             const logos = document.querySelectorAll('.floating-logo');
             const count = logos.length;
-            const radius = 250; // Radius of the globe
+            const radius = 200;
 
             logos.forEach((logo, i) => {
-                // Fibonacci sphere algorithm for even distribution
                 const phi = Math.acos(-1 + (2 * i) / count);
                 const theta = Math.sqrt(count * Math.PI) * phi;
 
@@ -164,19 +163,12 @@
                 const y = radius * Math.sin(theta) * Math.sin(phi);
                 const z = radius * Math.cos(phi);
 
-                // Position at center of container first
-                const centerX = container.offsetWidth / 2;
-                const centerY = container.offsetHeight / 2;
-
-                logo.style.left = `${centerX + x}px`;
-                logo.style.top = `${centerY + y}px`;
-
-                // Apply 3D transform for depth
-                logo.style.transform = `translate3d(-50%, -50%, ${z}px)`;
+                logo.style.left = '50%';
+                logo.style.top = '50%';
+                logo.style.transform = `translate3d(calc(-50% + ${x}px), calc(-50% + ${y}px), ${z}px)`;
             });
         }
 
-        // Initialize on load and window resize
         window.addEventListener('load', positionLogosInSphere);
         window.addEventListener('resize', positionLogosInSphere);
     </script>

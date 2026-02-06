@@ -8,6 +8,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    cursor: none !important;
+    /* Hide system cursor globally */
 }
 
 .logo {
@@ -289,16 +291,38 @@ body {
 
 /* Custom Cursor */
 .custom-cursor {
-    width: 20px;
-    height: 20px;
-    background: var(--cursor-color);
-    border-radius: 50%;
+    width: 30px;
+    height: 30px;
     position: fixed;
     pointer-events: none;
     z-index: 9999;
-    mix-blend-mode: difference;
-    transform: translate(-50%, -50%);
-    transition: width 0.3s, height 0.3s, transform 0.1s;
+    /* Traditional Arrow Hot Point */
+    transform: translate(-40%, -40%);
+    transition: transform 0.1s ease-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Specific Hot Point for Hand Pointer */
+.custom-cursor.pointer-active {
+    transform: translate(-20%, -10%);
+}
+
+.custom-cursor i {
+    font-size: 1.8rem;
+    color: #ffffff;
+    -webkit-text-stroke: 2.5px #000000;
+    filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.2));
+    /* Default Arrow Rotation */
+    transform: rotate(-90deg);
+    transition: transform 0.2s ease;
+}
+
+/* Reset Rotation for Hand Pointer */
+.custom-cursor.pointer-active i {
+    transform: rotate(0deg);
+    font-size: 2rem;
 }
 
 /* Skills Page Specific Styling */
@@ -398,12 +422,13 @@ body {
 /* Globe Structure (Skills Page) */
 .globe-wrapper {
     position: relative;
-    width: 600px;
-    height: 600px;
-    perspective: 1000px;
+    width: 500px;
+    height: 500px;
+    perspective: 1200px;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: auto;
 }
 
 .globe-container {
@@ -416,12 +441,10 @@ body {
 
 .floating-logo {
     position: absolute;
-    font-size: 2.5rem;
-    /* Smaller as requested */
+    font-size: 2.2rem;
     transition: all 0.3s ease;
     cursor: pointer;
     transform-style: preserve-3d;
-    backface-visibility: hidden;
 }
 
 .floating-logo:hover {
