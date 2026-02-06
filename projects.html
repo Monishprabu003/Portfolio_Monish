@@ -105,49 +105,11 @@
                 </div>
             </div>
             <div class="right-content">
-                <div class="globe-wrapper">
-                    <div class="globe-container" id="project-globe">
-                        <!-- Project Icons -->
-                        <i class="fa-solid fa-code floating-logo" style="color: #61DAFB;"></i>
-                        <i class="fa-solid fa-brain floating-logo" style="color: #ffffff;"></i>
-                        <i class="fa-solid fa-chart-line floating-logo" style="color: #2EA043;"></i>
-                        <i class="fa-solid fa-mobile-screen-button floating-logo" style="color: #FF7E67;"></i>
-                        <i class="fa-solid fa-database floating-logo" style="color: #336711;"></i>
-                        <i class="fa-solid fa-cloud-arrow-up floating-logo" style="color: #00BFFF;"></i>
-                        <i class="fa-solid fa-microchip floating-logo" style="color: #FFD700;"></i>
-                        <i class="fa-solid fa-shield-halved floating-logo" style="color: #8B5CF6;"></i>
-                        <i class="fa-solid fa-globe floating-logo" style="color: #00d2ff;"></i>
-                        <i class="fa-solid fa-rocket floating-logo" style="color: #FF4500;"></i>
-                    </div>
-                </div>
+                <!-- Globe effect removed -->
             </div>
         </main>
     </div>
     <script src="script.js"></script>
-    <script>
-        function positionLogosInSphere() {
-            const container = document.querySelector('#project-globe');
-            const logos = container.querySelectorAll('.floating-logo');
-            const count = logos.length;
-            const radius = 220;
-
-            logos.forEach((logo, i) => {
-                const phi = Math.acos(-1 + (2 * i) / count);
-                const theta = Math.sqrt(count * Math.PI) * phi;
-
-                const x = radius * Math.cos(theta) * Math.sin(phi);
-                const y = radius * Math.sin(theta) * Math.sin(phi);
-                const z = radius * Math.cos(phi);
-
-                logo.style.left = '50%';
-                logo.style.top = '50%';
-                logo.style.transform = `translate3d(calc(-50% + ${x}px), calc(-50% + ${y}px), ${z}px)`;
-            });
-        }
-
-        window.addEventListener('load', positionLogosInSphere);
-        window.addEventListener('resize', positionLogosInSphere);
-    </script>
 </body>
 
 </html>

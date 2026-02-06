@@ -137,6 +137,20 @@ body {
     white-space: nowrap;
 }
 
+.my-projects-btn::after,
+.about-btn::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #ffffff, transparent);
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.8), 0 0 25px rgba(255, 255, 255, 0.4);
+    animation: underline3D 3s ease-in-out infinite;
+    transform-style: preserve-3d;
+}
+
 .activities-btn {
     position: absolute;
     top: 3rem;
@@ -151,6 +165,35 @@ body {
     cursor: pointer;
     white-space: nowrap;
     z-index: 100;
+}
+
+.my-skills-btn::after,
+.activities-btn::after,
+.experience-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #000000, transparent);
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.4), 0 0 25px rgba(0, 0, 0, 0.2);
+    animation: underline3DBlack 3s ease-in-out infinite;
+    transform-style: preserve-3d;
+}
+
+@keyframes underline3DBlack {
+
+    0%,
+    100% {
+        transform: scaleX(0.5) translateZ(0);
+        opacity: 0.3;
+    }
+
+    50% {
+        transform: scaleX(1) translateZ(20px);
+        opacity: 1;
+    }
 }
 
 .my-skills-btn:hover,
@@ -182,6 +225,28 @@ body {
     cursor: pointer;
     white-space: nowrap;
     z-index: 100;
+}
+
+.about-main-title,
+.projects-main-title,
+.feats-title {
+    position: relative;
+    display: table;
+}
+
+.about-main-title::after,
+.projects-main-title::after,
+.feats-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, #ffffff, transparent);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.4);
+    animation: underline3D 3s ease-in-out infinite;
+    transform-style: preserve-3d;
 }
 
 /* Back Arrow Button (Skills Page) */
@@ -389,13 +454,17 @@ body {
 
 /* Skills Page Specific Styling */
 .skills-page-container {
-    padding: 2rem 4rem;
+    padding: 2rem 1rem;
     width: 100%;
-    max-width: 1100px;
+    max-width: 950px;
     height: 100%;
-    overflow-y: auto;
-    scrollbar-width: none;
-    /* Hide scrollbar for clean look */
+    max-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Center content vertically */
+    overflow: hidden;
+    /* Strictly no scroll */
 }
 
 .skills-page-container::-webkit-scrollbar {
@@ -403,27 +472,62 @@ body {
 }
 
 .skills-main-title {
-    font-size: 3.0rem;
+    font-size: 3rem;
     color: #ffffff;
     font-family: 'Outfit', sans-serif;
     font-weight: 800;
-    margin-bottom: 4rem;
-    letter-spacing: 2px;
+    margin: 1.5rem auto 3rem auto;
+    /* Positive top margin to prevent hiding */
+    letter-spacing: 5px;
+    text-align: center;
+    position: relative;
+    display: table;
+    /* To make width fit content for underline centering */
+}
+
+.skills-main-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, #ffffff, transparent);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.4);
+    animation: underline3D 3s ease-in-out infinite;
+    transform-style: preserve-3d;
+}
+
+@keyframes underline3D {
+
+    0%,
+    100% {
+        transform: scaleX(0.5) translateZ(0);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: scaleX(1) translateZ(20px);
+        opacity: 1;
+    }
 }
 
 .skills-section {
-    margin-bottom: 2.5rem;
+    margin-bottom: 0.8rem;
+    /* Tightened */
 }
 
 .section-header {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    font-size: 1.6rem;
-    font-weight: 350;
+    gap: 0.8rem;
+    font-size: 1.3rem;
+    /* Slightly bigger */
+    font-weight: 500;
     font-family: 'Outfit', sans-serif;
     letter-spacing: 2px;
-    margin-bottom: 2rem;
+    margin-bottom: 0.6rem;
+    /* Tightened */
 }
 
 .section-header i {
@@ -458,22 +562,25 @@ body {
 .skills-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 3.5rem;
+    gap: 1.8rem;
+    /* Adjusted for bigger text */
 }
 
 .skill-item {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.6rem;
     color: #ffffff;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
+    /* Slightly bigger */
     font-weight: 400;
     font-family: 'Outfit', sans-serif;
     transition: all 0.3s ease;
 }
 
 .skill-item i {
-    font-size: 2.2rem;
+    font-size: 2rem;
+    /* Slightly bigger */
 }
 
 .skill-item:hover {
@@ -481,56 +588,9 @@ body {
     opacity: 0.8;
 }
 
-/* Globe Structure (Skills Page) */
-.globe-wrapper {
-    position: relative;
-    width: 500px;
-    height: 500px;
-    perspective: 1200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: auto;
-}
+/* Globe structure removed */
 
-.globe-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
-    animation: rotateGlobe 30s linear infinite;
-}
-
-.floating-logo {
-    position: absolute;
-    font-size: 2.2rem;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    transform-style: preserve-3d;
-}
-
-.floating-logo:hover {
-    transform: scale(1.4) !important;
-    filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.2));
-    z-index: 100;
-}
-
-@keyframes rotateGlobe {
-    from {
-        transform: rotateY(0deg) rotateX(10deg);
-    }
-
-    to {
-        transform: rotateY(360deg) rotateX(10deg);
-    }
-}
-
-@media (max-width: 1200px) {
-    .globe-wrapper {
-        width: 400px;
-        height: 400px;
-    }
-}
+@media (max-width: 1200px) {}
 
 @media (max-width: 768px) {
     .skills-list {
@@ -750,6 +810,8 @@ body {
 
 .experience-title {
     color: #000000;
+    position: relative;
+    display: table;
 }
 
 .feats-list {
