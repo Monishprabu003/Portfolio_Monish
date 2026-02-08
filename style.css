@@ -138,16 +138,21 @@ body {
 }
 
 .my-projects-btn::after,
-.about-btn::after {
+.about-btn::after,
+.about-main-title::after,
+.projects-main-title::after,
+.feats-title::after,
+.skills-main-title::after {
     content: '';
     position: absolute;
-    bottom: -8px;
+    bottom: -10px;
     left: 0;
     width: 100%;
-    height: 3px;
-    background: linear-gradient(90deg, transparent, #ffffff, transparent);
-    box-shadow: 0 0 12px rgba(255, 255, 255, 0.8), 0 0 25px rgba(255, 255, 255, 0.4);
-    animation: underline3D 3s ease-in-out infinite;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), #ffffff, rgba(255, 255, 255, 0.2), transparent);
+    background-size: 200% 100%;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 40px rgba(255, 255, 255, 0.4);
+    animation: underline3D 2.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
     transform-style: preserve-3d;
 }
 
@@ -172,27 +177,34 @@ body {
 .experience-title::after {
     content: '';
     position: absolute;
-    bottom: -8px;
+    bottom: -10px;
     left: 0;
     width: 100%;
-    height: 3px;
-    background: linear-gradient(90deg, transparent, #000000, transparent);
-    box-shadow: 0 0 12px rgba(0, 0, 0, 0.4), 0 0 25px rgba(0, 0, 0, 0.2);
-    animation: underline3DBlack 3s ease-in-out infinite;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.2), #000000, rgba(0, 0, 0, 0.2), transparent);
+    background-size: 200% 100%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4), 0 0 40px rgba(0, 0, 0, 0.2);
+    animation: underline3DBlack 2.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
     transform-style: preserve-3d;
 }
 
 @keyframes underline3DBlack {
-
-    0%,
-    100% {
-        transform: scaleX(0.5) translateZ(0);
-        opacity: 0.3;
+    0% {
+        transform: scaleX(0.3) translateZ(0);
+        opacity: 0.2;
+        background-position: 200% 0;
     }
 
     50% {
-        transform: scaleX(1) translateZ(20px);
+        transform: scaleX(1.05) translateZ(30px);
         opacity: 1;
+        background-position: 0% 0;
+    }
+
+    100% {
+        transform: scaleX(0.3) translateZ(0);
+        opacity: 0.2;
+        background-position: -200% 0;
     }
 }
 
@@ -201,7 +213,28 @@ body {
 .about-btn:hover,
 .activities-btn:hover {
     letter-spacing: 2px;
-    opacity: 0.6;
+    opacity: 0.8;
+}
+
+.my-projects-btn:hover::after,
+.about-btn:hover::after,
+.about-main-title:hover::after,
+.projects-main-title:hover::after,
+.feats-title:hover::after,
+.skills-main-title:hover::after {
+    height: 6px;
+    bottom: -12px;
+    animation-duration: 1.2s;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 1), 0 0 60px rgba(255, 255, 255, 0.6);
+}
+
+.my-skills-btn:hover::after,
+.activities-btn:hover::after,
+.experience-title:hover::after {
+    height: 6px;
+    bottom: -12px;
+    animation-duration: 1.2s;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5), 0 0 60px rgba(0, 0, 0, 0.3);
 }
 
 .my-skills-btn:active,
@@ -232,22 +265,10 @@ body {
 .feats-title {
     position: relative;
     display: table;
+    cursor: pointer;
 }
 
-.about-main-title::after,
-.projects-main-title::after,
-.feats-title::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: linear-gradient(90deg, transparent, #ffffff, transparent);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.4);
-    animation: underline3D 3s ease-in-out infinite;
-    transform-style: preserve-3d;
-}
+
 
 /* Back Arrow Button (Skills Page) */
 .back-arrow-btn {
@@ -481,32 +502,28 @@ body {
     text-align: center;
     position: relative;
     display: table;
+    cursor: pointer;
 }
 
-.skills-main-title::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: linear-gradient(90deg, transparent, #ffffff, transparent);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.4);
-    animation: underline3D 3s ease-in-out infinite;
-    transform-style: preserve-3d;
-}
+
 
 @keyframes underline3D {
-
-    0%,
-    100% {
-        transform: scaleX(0.5) translateZ(0);
-        opacity: 0.5;
+    0% {
+        transform: scaleX(0.3) translateZ(0);
+        opacity: 0.2;
+        background-position: -200% 0;
     }
 
     50% {
-        transform: scaleX(1) translateZ(20px);
+        transform: scaleX(1.05) translateZ(30px);
         opacity: 1;
+        background-position: 0% 0;
+    }
+
+    100% {
+        transform: scaleX(0.3) translateZ(0);
+        opacity: 0.2;
+        background-position: 200% 0;
     }
 }
 
@@ -876,6 +893,7 @@ body {
     color: #000000;
     position: relative;
     display: table;
+    cursor: pointer;
 }
 
 .feats-list {
