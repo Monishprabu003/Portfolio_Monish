@@ -157,6 +157,29 @@ body {
     border: 3px solid #000000;
     color: #000000;
     background: rgba(255, 255, 255, 0.7);
+    position: relative;
+    overflow: hidden;
+}
+
+.black-border-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('images/contact-bg.jpg') no-repeat center center;
+    background-size: cover;
+    opacity: 0.15;
+    /* Light opacity as requested */
+    z-index: 0;
+    pointer-events: none;
+}
+
+.black-border-box>* {
+    position: relative;
+    z-index: 1;
+    /* Ensure content is above background image */
 }
 
 /* My Skills Link Styling (Matching Reference Image) */
