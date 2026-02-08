@@ -454,17 +454,16 @@ body {
 
 /* Skills Page Specific Styling */
 .skills-page-container {
-    padding: 2rem 1rem;
+    padding: 1.5rem 1rem;
     width: 100%;
     max-width: 950px;
     height: 100%;
     max-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    /* Center content vertically */
+    justify-content: flex-start;
+    /* Move content to the top */
     overflow: hidden;
-    /* Strictly no scroll */
 }
 
 .skills-page-container::-webkit-scrollbar {
@@ -476,13 +475,12 @@ body {
     color: #ffffff;
     font-family: 'Outfit', sans-serif;
     font-weight: 800;
-    margin: 1.5rem auto 3rem auto;
-    /* Positive top margin to prevent hiding */
+    margin: 0 auto 3.5rem auto;
+    /* Reduced top margin, increased bottom margin */
     letter-spacing: 5px;
     text-align: center;
     position: relative;
     display: table;
-    /* To make width fit content for underline centering */
 }
 
 .skills-main-title::after {
@@ -513,8 +511,8 @@ body {
 }
 
 .skills-section {
-    margin-bottom: 0.8rem;
-    /* Tightened */
+    margin-bottom: 2.5rem;
+    /* Increased spacing between categories */
 }
 
 .section-header {
@@ -522,12 +520,11 @@ body {
     align-items: center;
     gap: 0.8rem;
     font-size: 1.3rem;
-    /* Slightly bigger */
     font-weight: 500;
     font-family: 'Outfit', sans-serif;
     letter-spacing: 2px;
-    margin-bottom: 0.6rem;
-    /* Tightened */
+    margin-bottom: 1.2rem;
+    /* More space between header and icons */
 }
 
 .section-header i {
