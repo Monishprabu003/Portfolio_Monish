@@ -99,7 +99,6 @@ body {
     color: #ffffff;
     background: rgba(0, 0, 0, 0.7);
     position: relative;
-    /* For avatar positioning */
     z-index: 5;
 }
 
