@@ -170,8 +170,8 @@ body {
     height: 100%;
     background: url('images/contact-bg.jpg') no-repeat center center;
     background-size: cover;
-    opacity: 0.15;
-    /* Light opacity as requested */
+    opacity: 0.2;
+    /* Slightly increased for better visibility */
     z-index: 0;
     pointer-events: none;
 }
