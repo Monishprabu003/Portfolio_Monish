@@ -17,13 +17,49 @@
     top: 2rem;
     left: 3rem;
     font-family: 'Dancing Script', cursive;
-    font-size: 2.5rem;
-    font-weight: 700;
+    font-size: 3rem;
+    font-weight: 800;
     color: #ffffff;
-    z-index: 100;
+    z-index: 1000;
     mix-blend-mode: difference;
-    pointer-events: none;
-    letter-spacing: 2px;
+    pointer-events: auto;
+    /* Active for hover effect */
+    cursor: pointer;
+    letter-spacing: 4px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation: logoFloat 4s ease-in-out infinite, logoGlow 3s ease-in-out infinite alternate;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.logo:hover {
+    transform: scale(1.2) rotateY(15deg) rotateX(10deg) translateZ(50px);
+    text-shadow: 0 0 20px #ffffff, 0 0 40px rgba(255, 255, 255, 0.5);
+    letter-spacing: 8px;
+}
+
+@keyframes logoFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) rotateY(0deg);
+    }
+
+    50% {
+        transform: translateY(-10px) rotateY(10deg) rotateX(5deg);
+    }
+}
+
+@keyframes logoGlow {
+    from {
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.2);
+    }
+
+    to {
+        text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.4), 0 0 45px rgba(255, 255, 255, 0.2);
+        filter: brightness(1.2);
+    }
 }
 
 body {
