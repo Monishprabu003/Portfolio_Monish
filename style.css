@@ -107,12 +107,12 @@ body {
     position: absolute;
     top: -195px;
     /* Aligned so hands sit on the border */
-    right: 30px;
-    width: 220px;
+    left: 140px;
+    width: 200px;
     height: auto;
     z-index: 10;
     /* Above the box border */
-    transform-origin: bottom right;
+    transform-origin: bottom left;
     opacity: 0;
     pointer-events: none;
     animation: slantedPeek 12s ease-in-out infinite;
