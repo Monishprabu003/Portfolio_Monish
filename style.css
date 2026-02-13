@@ -139,54 +139,7 @@ body {
     z-index: 5;
 }
 
-.peeking-avatar {
-    position: absolute;
-    top: -195px;
-    /* Aligned so hands sit on the border */
-    left: 140px;
-    width: 200px;
-    height: auto;
-    z-index: 10;
-    /* Above the box border */
-    transform-origin: bottom left;
-    opacity: 0;
-    pointer-events: none;
-    animation: slantedPeek 12s ease-in-out infinite;
-}
 
-.peeking-avatar img {
-    width: 100%;
-    height: auto;
-    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.15));
-}
-
-@keyframes slantedPeek {
-
-    0%,
-    100% {
-        transform: translateY(100px) rotateX(20deg) rotateZ(15deg) scale(0.7);
-        opacity: 0;
-    }
-
-    10%,
-    40% {
-        transform: translateY(0) rotateX(0deg) rotateZ(10deg) scale(1);
-        /* Slanted peek out */
-        opacity: 1;
-    }
-
-    50%,
-    85% {
-        transform: translateY(-10px) rotateZ(5deg) scale(1.05) translateX(-10px);
-        /* Leaning in further */
-        opacity: 1;
-    }
-
-    92% {
-        transform: translateY(100px) rotateX(20deg) rotateZ(15deg) scale(0.7);
-        opacity: 0;
-    }
-}
 
 .black-border-box {
     border: 3px solid #000000;
@@ -1099,14 +1052,5 @@ body {
     .feats-title,
     .experience-title {
         font-size: 2.5rem;
-    }
-}
-
-/* Responsive Avatar */
-@media (max-width: 768px) {
-    .peeking-avatar {
-        width: 120px;
-        top: -70px;
-        right: -10px;
     }
 }
