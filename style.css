@@ -778,36 +778,78 @@ body {
 }
 
 .project-card {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 1.5rem;
-    padding: 2rem;
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    backdrop-filter: blur(5px);
+    padding: 2.5rem;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    backdrop-filter: blur(10px);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
+    position: relative;
+    overflow: hidden;
+    transform-style: preserve-3d;
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top right, rgba(255, 255, 255, 0.1), transparent);
+    opacity: 0;
+    transition: opacity 0.5s ease;
 }
 
 .project-card:hover {
-    transform: translateY(-10px);
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.3);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    transform: translateY(-15px) scale(1.02) rotateX(2deg) rotateY(-2deg);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.project-card:hover::before {
+    opacity: 1;
 }
 
 .project-name {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     color: #ffffff;
-    margin-bottom: 1rem;
-    font-weight: 700;
+    margin-bottom: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    line-height: 1.2;
+}
+
+.project-meta {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.project-institution {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 500;
+}
+
+.project-duration {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.4);
+    font-family: 'Outfit', sans-serif;
+    letter-spacing: 1px;
 }
 
 .project-desc {
-    font-size: 1.1rem;
-    color: #cccccc;
-    line-height: 1.6;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.7;
     margin-bottom: 2rem;
+    font-weight: 400;
 }
 
 .project-tech {
@@ -1052,5 +1094,242 @@ body {
     .feats-title,
     .experience-title {
         font-size: 2.5rem;
+    }
+}
+
+/* New Projects Template Styles */
+.projects-full-width {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    color: #ffffff;
+}
+
+:root {
+    --text-main: #ffffff;
+    --text-muted: rgba(255, 255, 255, 0.6);
+}
+
+.project-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    height: 350px;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.project-visual {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    overflow: hidden;
+    transition: opacity 0.5s ease;
+}
+
+.project-card:hover .project-visual {
+    opacity: 0.15;
+}
+
+.project-overlay {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 20%, transparent 100%);
+    opacity: 0.8;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.project-card:hover .project-overlay {
+    opacity: 1;
+    transform: translateY(-5px);
+}
+
+.visual-safepipe {
+    background: linear-gradient(135deg, #1e1b4b, #312e81);
+}
+
+.visual-fileshare {
+    background: linear-gradient(135deg, #0c4a6e, #075985);
+}
+
+.visual-votechain {
+    background: linear-gradient(135deg, #064e3b, #065f46);
+}
+
+.visual-cinefield {
+    background: linear-gradient(135deg, #312e81, #4338ca);
+}
+
+.code-line {
+    position: absolute;
+    font-family: monospace;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.4);
+    white-space: nowrap;
+    animation: codeScroll 10s linear infinite;
+}
+
+@keyframes codeScroll {
+    0% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.4;
+    }
+
+    90% {
+        opacity: 0.4;
+    }
+
+    100% {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+}
+
+.data-node {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #38bdf8;
+    border-radius: 50%;
+    animation: nodePulse 2s ease-in-out infinite;
+}
+
+@keyframes nodePulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.3;
+    }
+
+    50% {
+        transform: scale(2);
+        opacity: 0.8;
+    }
+}
+
+.badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.btn-icon {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0.5rem;
+    font-size: 0.8rem;
+    color: #ffffff;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.btn-icon:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: #ffffff;
+}
+
+.star {
+    position: absolute;
+    color: #fbbf24;
+    animation: starTwinkle 3s infinite;
+}
+
+@keyframes starTwinkle {
+
+    0%,
+    100% {
+        opacity: 0.2;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.8;
+        transform: scale(1.2);
+    }
+}
+
+.ballot-box-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.ballot-paper {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: castVote 4s ease-in-out infinite;
+    color: #34d399;
+}
+
+@keyframes castVote {
+    0% {
+        transform: translate(-50%, -40px);
+        opacity: 0;
+    }
+
+    30% {
+        transform: translate(-50%, 0);
+        opacity: 1;
+    }
+
+    70% {
+        transform: translate(-50%, 20px);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(-50%, 40px);
+        opacity: 0;
+    }
+}
+
+.vote-tick {
+    position: absolute;
+    bottom: 20%;
+    right: 20%;
+    color: #34d399;
+    animation: checkAppear 4s infinite;
+}
+
+@keyframes checkAppear {
+
+    0%,
+    50% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    70%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
     }
 }
