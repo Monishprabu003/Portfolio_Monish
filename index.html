@@ -63,9 +63,10 @@
 
       <!-- Center: Floating Menu -->
       <nav class="floating-nav-menu" aria-label="Main Navigation">
-        <a href="#work" class="nav-item active">Work</a>
-        <a href="#service" class="nav-item">Service</a>
-        <a href="#experience" class="nav-item">Experience</a>
+        <a href="#education" class="nav-item">Education</a>
+        <a href="#projects" class="nav-item active">Projects</a>
+        <a href="#technologies" class="nav-item">Technologies</a>
+        <a href="#achievements" class="nav-item">Achievements</a>
         <a href="#contact" class="nav-item">Contact</a>
       </nav>
 
@@ -133,6 +134,526 @@
       <span>Intro</span>
     </button>
   </main>
+
+  <!-- ══════════════════════════════════════════
+       4. PROJECTS / SELECTED WORK SECTION
+  ══════════════════════════════════════════ -->
+  <section class="projects-stage" id="projects">
+    
+    <!-- Watermarked Header (Exact Match to Image Reference) -->
+    <div class="projects-header">
+      <span class="projects-watermark">PORTFOLIO</span>
+      <h2 class="projects-title">/ SELECTED WORK</h2>
+    </div>
+
+    <div class="projects-container">
+
+      <!-- Left Vertical Chain Rail (Scroll Driven Up & Down) -->
+      <aside class="chain-rail chain-rail-left" id="chain-left">
+        <div class="chain-track" id="chain-track-left">
+          <div class="chain-node"><i class="fa-brands fa-python"></i><span>Python</span></div>
+          <div class="chain-link"></div>
+          <div class="chain-node"><i class="fa-solid fa-brain"></i><span>PyTorch</span></div>
+          <div class="chain-link"></div>
+          <div class="chain-node"><i class="fa-solid fa-robot"></i><span>LangChain</span></div>
+          <div class="chain-link"></div>
+          <div class="chain-node"><i class="fa-brands fa-docker"></i><span>Docker</span></div>
+          <div class="chain-link"></div>
+          <div class="chain-node"><i class="fa-solid fa-bolt"></i><span>FastAPI</span></div>
+          <div class="chain-link"></div>
+          <div class="chain-node"><i class="fa-solid fa-database"></i><span>PostgreSQL</span></div>
+          <div class="chain-link"></div>
+          <div class="chain-node"><i class="fa-solid fa-network-wired"></i><span>LangGraph</span></div>
+          <div class="chain-link"></div>
+          <div class="chain-node"><i class="fa-solid fa-eye"></i><span>YOLO11</span></div>
+          <!-- Loop items for continuous scroll motion -->
+          <div class="chain-link"></div>
+          <div class="chain-node"><i class="fa-brands fa-python"></i><span>Python</span></div>
+          <div class="chain-link"></div>
+          <div class="chain-node"><i class="fa-solid fa-brain"></i><span>PyTorch</span></div>
+          <div class="chain-link"></div>
+          <div class="chain-node"><i class="fa-solid fa-robot"></i><span>LangChain</span></div>
+        </div>
+      </aside>
+
+      <!-- Center: Projects Cards Grid -->
+      <div class="projects-cards-grid">
+        
+        <!-- Project 1: FinMentorAI -->
+        <article class="pcard" id="card-finmentor">
+          <div class="pcard-badge">#01 / AI Platform</div>
+          <div class="pcard-header">
+            <div class="pcard-icon-box" style="background: linear-gradient(135deg, #10b981, #059669)">
+              <i class="fa-solid fa-coins"></i>
+            </div>
+            <div class="pcard-links">
+              <a href="https://github.com/Monishprabu003" target="_blank" rel="noopener" class="pcard-link-btn" title="View GitHub">
+                <i class="fa-brands fa-github"></i>
+              </a>
+            </div>
+          </div>
+          <h3 class="pcard-title">FinMentorAI</h3>
+          <p class="pcard-desc">
+            AI-powered financial platform inspired by "W3Schools for Finance". Combines structured learning (Learn → Earn → Invest) with an autonomous AI mentor powered by LLMs &amp; RAG.
+          </p>
+          <div class="pcard-tags">
+            <span class="ptag">FastAPI</span>
+            <span class="ptag">React</span>
+            <span class="ptag">LangChain</span>
+            <span class="ptag">ChromaDB</span>
+            <span class="ptag">Gemini</span>
+          </div>
+        </article>
+
+        <!-- Project 2: RAG PDF Agent -->
+        <article class="pcard" id="card-rag">
+          <div class="pcard-badge">#02 / Document Intelligence</div>
+          <div class="pcard-header">
+            <div class="pcard-icon-box" style="background: linear-gradient(135deg, #6366f1, #4f46e5)">
+              <i class="fa-solid fa-file-pdf"></i>
+            </div>
+            <div class="pcard-links">
+              <a href="https://github.com/Monishprabu003" target="_blank" rel="noopener" class="pcard-link-btn" title="View GitHub">
+                <i class="fa-brands fa-github"></i>
+              </a>
+            </div>
+          </div>
+          <h3 class="pcard-title">RAG PDF Agent</h3>
+          <p class="pcard-desc">
+            Autonomous Retrieval-Augmented Generation system that indexes multi-domain PDFs with layout-aware chunking and returns evidence-verified responses with exact page-level citations.
+          </p>
+          <div class="pcard-tags">
+            <span class="ptag">Python</span>
+            <span class="ptag">LangChain</span>
+            <span class="ptag">ChromaDB</span>
+            <span class="ptag">Streamlit</span>
+            <span class="ptag">Gemini</span>
+          </div>
+        </article>
+
+        <!-- Project 3: PlacementMentorAI -->
+        <article class="pcard" id="card-placement">
+          <div class="pcard-badge">#03 / ML &amp; Computer Vision</div>
+          <div class="pcard-header">
+            <div class="pcard-icon-box" style="background: linear-gradient(135deg, #f59e0b, #d97706)">
+              <i class="fa-solid fa-user-graduate"></i>
+            </div>
+            <div class="pcard-links">
+              <a href="https://github.com/Monishprabu003" target="_blank" rel="noopener" class="pcard-link-btn" title="View GitHub">
+                <i class="fa-brands fa-github"></i>
+              </a>
+            </div>
+          </div>
+          <h3 class="pcard-title">PlacementMentorAI</h3>
+          <p class="pcard-desc">
+            ML system predicting student placement readiness and role recommendations. Features real-time mock interview posture and behavioral analysis using YOLO11-Pose.
+          </p>
+          <div class="pcard-tags">
+            <span class="ptag">Flask</span>
+            <span class="ptag">Scikit-learn</span>
+            <span class="ptag">YOLO11</span>
+            <span class="ptag">OpenCV</span>
+            <span class="ptag">Docker</span>
+          </div>
+        </article>
+
+        <!-- Project 4: SQL Query Optimizer Agent -->
+        <article class="pcard" id="card-sql">
+          <div class="pcard-badge">#04 / AI Agent Workflow</div>
+          <div class="pcard-header">
+            <div class="pcard-icon-box" style="background: linear-gradient(135deg, #06b6d4, #0891b2)">
+              <i class="fa-solid fa-database"></i>
+            </div>
+            <div class="pcard-links">
+              <a href="https://github.com/Monishprabu003" target="_blank" rel="noopener" class="pcard-link-btn" title="View GitHub">
+                <i class="fa-brands fa-github"></i>
+              </a>
+            </div>
+          </div>
+          <h3 class="pcard-title">SQL Query Optimizer</h3>
+          <p class="pcard-desc">
+            Intelligent tool analyzing SQL queries and execution plans (EXPLAIN) to detect bottlenecks and generate production-ready optimization recommendations via local LLMs.
+          </p>
+          <div class="pcard-tags">
+            <span class="ptag">FastAPI</span>
+            <span class="ptag">PostgreSQL</span>
+            <span class="ptag">React</span>
+            <span class="ptag">Ollama</span>
+            <span class="ptag">Tailwind</span>
+          </div>
+        </article>
+
+        <!-- Project 5: Alumni Connect -->
+        <article class="pcard" id="card-alumni">
+          <div class="pcard-badge">#05 / Full-Stack Platform</div>
+          <div class="pcard-header">
+            <div class="pcard-icon-box" style="background: linear-gradient(135deg, #ec4899, #db2777)">
+              <i class="fa-solid fa-people-group"></i>
+            </div>
+            <div class="pcard-links">
+              <a href="https://github.com/Monishprabu003" target="_blank" rel="noopener" class="pcard-link-btn" title="View GitHub">
+                <i class="fa-brands fa-github"></i>
+              </a>
+            </div>
+          </div>
+          <h3 class="pcard-title">Alumni Connect</h3>
+          <p class="pcard-desc">
+            Full-stack networking platform bridging students and alumni for mentorship, career opportunities, and job sharing with robust REST API architecture.
+          </p>
+          <div class="pcard-tags">
+            <span class="ptag">React</span>
+            <span class="ptag">Node.js</span>
+            <span class="ptag">Express</span>
+            <span class="ptag">PostgreSQL</span>
+            <span class="ptag">Tailwind</span>
+          </div>
+        </article>
+
+        <!-- Project 6: LifeOS -->
+        <article class="pcard" id="card-lifeos">
+          <div class="pcard-badge">#06 / Modular OS &amp; AI Copilot</div>
+          <div class="pcard-header">
+            <div class="pcard-icon-box" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed)">
+              <i class="fa-solid fa-compass"></i>
+            </div>
+            <div class="pcard-links">
+              <a href="https://github.com/Monishprabu003" target="_blank" rel="noopener" class="pcard-link-btn" title="View GitHub">
+                <i class="fa-brands fa-github"></i>
+              </a>
+            </div>
+          </div>
+          <h3 class="pcard-title">LifeOS</h3>
+          <p class="pcard-desc">
+            Modular personal life operating system managing Health, Finance, Habits, Goals, and Productivity with an embedded AI Copilot for personalized growth insights.
+          </p>
+          <div class="pcard-tags">
+            <span class="ptag">React</span>
+            <span class="ptag">Node.js</span>
+            <span class="ptag">MongoDB</span>
+            <span class="ptag">Docker</span>
+            <span class="ptag">AI Copilot</span>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Right Vertical Chain Rail (Scroll Driven Counter Parallax) -->
+      <aside class="chain-rail chain-rail-right" id="chain-right">
+        <div class="chain-track" id="chain-track-right">
+          <div class="chain-node"><i class="fa-brands fa-react"></i><span>React</span></div>
+          <div class="chain-link"></div>
+          <div class="chain-node"><i class="fa-solid fa-leaf"></i><span>MongoDB</span></div>
+          <div class="chain-link"></div>
+          <div class="chain-node"><i class="fa-brands fa-node-js"></i><span>Node.js</span></div>
+          <div class="chain-link"></div>
+          <div class="chain-node"><i class="fa-brands fa-git-alt"></i><span>Git</span></div>
+          <div class="chain-link"></div>
+          <div class="chain-node"><i class="fa-solid fa-cloud"></i><span>AWS</span></div>
+          <div class="chain-link"></div>
+          <div class="chain-node"><i class="fa-brands fa-linux"></i><span>Linux</span></div>
+          <div class="chain-link"></div>
+          <div class="chain-node"><i class="fa-solid fa-microchip"></i><span>Gemini</span></div>
+          <div class="chain-link"></div>
+          <div class="chain-node"><i class="fa-solid fa-cubes"></i><span>ChromaDB</span></div>
+          <!-- Loop items -->
+          <div class="chain-link"></div>
+          <div class="chain-node"><i class="fa-brands fa-react"></i><span>React</span></div>
+          <div class="chain-link"></div>
+          <div class="chain-node"><i class="fa-solid fa-leaf"></i><span>MongoDB</span></div>
+          <div class="chain-link"></div>
+          <div class="chain-node"><i class="fa-brands fa-node-js"></i><span>Node.js</span></div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       5. EDUCATION / ACADEMIC BACKGROUND SECTION
+  ══════════════════════════════════════════ -->
+  <section class="education-stage" id="education">
+    <div class="education-container">
+
+      <!-- Header (Exact Match to Reference Screenshot) -->
+      <div class="edu-header">
+        <div class="edu-pill-badge">
+          <i class="fa-solid fa-graduation-cap"></i>
+          <span>ACADEMIC BACKGROUND</span>
+        </div>
+        <h2 class="edu-title"><span class="slash-outline">//</span> EDUCATION</h2>
+        <p class="edu-subtitle">
+          Academic journey spanning Computer Science Engineering with a specialization in Cyber Security and foundational schooling.
+        </p>
+      </div>
+
+      <!-- Floating Hover Preview Card (Interactive Motion) -->
+      <div class="edu-hover-preview" id="edu-hover-preview">
+        <div class="edu-preview-visual preview-college" id="edu-preview-visual">
+          <div class="preview-glow"></div>
+          <div class="preview-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+          <span class="preview-label">Sri Shakthi Institute</span>
+        </div>
+      </div>
+
+      <!-- Interactive Education Rows -->
+      <div class="edu-list">
+
+        <!-- Row 1: College / B.E. Degree -->
+        <div class="edu-row active" data-visual="preview-college" id="edu-college">
+          <div class="edu-row-content">
+            <div class="edu-row-top">
+              <h3 class="edu-role-title">
+                <span>B.E. Computer Science &amp; Engineering (Cyber Security)</span>
+                <i class="fa-solid fa-arrow-up-right-from-square edu-arrow"></i>
+              </h3>
+              <span class="edu-date-badge">2022 — 2026</span>
+            </div>
+            <span class="edu-org">SRI SHAKTHI INSTITUTE OF ENGINEERING AND TECHNOLOGY, COIMBATORE</span>
+            <p class="edu-desc">
+              Specializing in Cyber Security, Artificial Intelligence, and Full-Stack Development. Practical focus on building scalable AI systems, LLMs, RAG pipelines, and secure backend architectures.
+            </p>
+          </div>
+        </div>
+
+        <!-- Row 2: Higher Secondary (HSC) -->
+        <div class="edu-row" data-visual="preview-hsc" id="edu-hsc">
+          <div class="edu-row-content">
+            <div class="edu-row-top">
+              <h3 class="edu-role-title">
+                <span>Higher Secondary Certificate (HSC / Grade 12)</span>
+                <i class="fa-solid fa-arrow-up-right-from-square edu-arrow"></i>
+              </h3>
+              <span class="edu-date-badge">2020 — 2022</span>
+            </div>
+            <span class="edu-org">HIGHER SECONDARY EDUCATION</span>
+            <p class="edu-desc">
+              Completed higher secondary education with major coursework in Mathematics, Physics, Chemistry, and Computer Science with academic excellence.
+            </p>
+          </div>
+        </div>
+
+        <!-- Row 3: Secondary School (SSLC) -->
+        <div class="edu-row" data-visual="preview-sslc" id="edu-sslc">
+          <div class="edu-row-content">
+            <div class="edu-row-top">
+              <h3 class="edu-role-title">
+                <span>Secondary School Leaving Certificate (SSLC / Grade 10)</span>
+                <i class="fa-solid fa-arrow-up-right-from-square edu-arrow"></i>
+              </h3>
+              <span class="edu-date-badge">2019 — 2020</span>
+            </div>
+            <span class="edu-org">SECONDARY SCHOOL EDUCATION</span>
+            <p class="edu-desc">
+              Completed foundational schooling, fostering strong analytical, scientific, and early computer programming curiosity.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       6. MY STACK / TECHNOLOGIES SECTION
+  ══════════════════════════════════════════ -->
+  <section class="mystack-stage" id="technologies">
+    <div class="mystack-container">
+
+      <!-- Top Badge (Matching Reference Screenshot) -->
+      <div class="mystack-top-badge">
+        <i class="fa-solid fa-asterisk"></i>
+        <span>MY STACK</span>
+      </div>
+
+      <!-- Categories Layout Rows -->
+      <div class="stack-rows">
+
+        <!-- 1. AI & MACHINE LEARNING -->
+        <div class="stack-category-row">
+          <div class="stack-cat-title">AI &amp; ML</div>
+          <div class="stack-items-grid">
+            <div class="stack-item">
+              <span class="stack-icon-box" style="background:#3776AB; color:#fff"><i class="fa-brands fa-python"></i></span>
+              <span class="stack-name">Python</span>
+            </div>
+            <div class="stack-item">
+              <span class="stack-icon-box" style="background:#EE4C2C; color:#fff"><i class="fa-solid fa-fire-flame-curved"></i></span>
+              <span class="stack-name">PyTorch</span>
+            </div>
+            <div class="stack-item">
+              <span class="stack-icon-box" style="background:#FF6F00; color:#fff"><i class="fa-solid fa-brain"></i></span>
+              <span class="stack-name">TensorFlow</span>
+            </div>
+            <div class="stack-item">
+              <span class="stack-icon-box" style="background:#F7931E; color:#fff"><i class="fa-solid fa-chart-line"></i></span>
+              <span class="stack-name">Scikit-learn</span>
+            </div>
+            <div class="stack-item">
+              <span class="stack-icon-box" style="background:#FFD21E; color:#000"><i class="fa-solid fa-face-smile"></i></span>
+              <span class="stack-name">Hugging Face</span>
+            </div>
+            <div class="stack-item">
+              <span class="stack-icon-box" style="background:#5C3EE8; color:#fff"><i class="fa-solid fa-eye"></i></span>
+              <span class="stack-name">OpenCV</span>
+            </div>
+            <div class="stack-item">
+              <span class="stack-icon-box" style="background:#111; color:#06b6d4"><i class="fa-solid fa-crosshairs"></i></span>
+              <span class="stack-name">YOLO11</span>
+            </div>
+            <div class="stack-item">
+              <span class="stack-icon-box" style="background:#150458; color:#fff"><i class="fa-solid fa-table"></i></span>
+              <span class="stack-name">Pandas / NumPy</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. GENAI & LLM -->
+        <div class="stack-category-row">
+          <div class="stack-cat-title">GENAI &amp; LLM</div>
+          <div class="stack-items-grid">
+            <div class="stack-item">
+              <span class="stack-icon-box" style="background:#1C3C3C; color:#10B981"><i class="fa-solid fa-link"></i></span>
+              <span class="stack-name">LangChain</span>
+            </div>
+            <div class="stack-item">
+              <span class="stack-icon-box" style="background:#3B82F6; color:#fff"><i class="fa-solid fa-network-wired"></i></span>
+              <span class="stack-name">LangGraph</span>
+            </div>
+            <div class="stack-item">
+              <span class="stack-icon-box" style="background:#8B5CF6; color:#fff"><i class="fa-solid fa-gem"></i></span>
+              <span class="stack-name">Google Gemini</span>
+            </div>
+            <div class="stack-item">
+              <span class="stack-icon-box" style="background:#059669; color:#fff"><i class="fa-solid fa-book-bookmark"></i></span>
+              <span class="stack-name">RAG Pipelines</span>
+            </div>
+            <div class="stack-item">
+              <span class="stack-icon-box" style="background:#EC4899; color:#fff"><i class="fa-solid fa-cubes"></i></span>
+              <span class="stack-name">ChromaDB</span>
+            </div>
+            <div class="stack-item">
+              <span class="stack-icon-box" style="background:#6366F1; color:#fff"><i class="fa-solid fa-magnifying-glass-chart"></i></span>
+              <span class="stack-name">Vector Embeddings</span>
+            </div>
+            <div class="stack-item">
+              <span class="stack-icon-box" style="background:#0F172A; color:#38BDF8"><i class="fa-solid fa-robot"></i></span>
+              <span class="stack-name">Agentic AI</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. BACKEND -->
+        <div class="stack-category-row">
+          <div class="stack-cat-title">BACKEND</div>
+          <div class="stack-items-grid">
+            <div class="stack-item">
+              <span class="stack-icon-box" style="background:#009688; color:#fff"><i class="fa-solid fa-bolt"></i></span>
+              <span class="stack-name">FastAPI</span>
+            </div>
+            <div class="stack-item">
+              <span class="stack-icon-box" style="background:#339933; color:#fff"><i class="fa-brands fa-node-js"></i></span>
+              <span class="stack-name">Node.js</span>
+            </div>
+            <div class="stack-item">
+              <span class="stack-icon-box" style="background:#000; color:#fff"><i class="fa-solid fa-server"></i></span>
+              <span class="stack-name">Express.js</span>
+            </div>
+            <div class="stack-item">
+              <span class="stack-icon-box" style="background:#444; color:#fff"><i class="fa-solid fa-flask"></i></span>
+              <span class="stack-name">Flask</span>
+            </div>
+            <div class="stack-item">
+              <span class="stack-icon-box" style="background:#E11D48; color:#fff"><i class="fa-solid fa-cloud"></i></span>
+              <span class="stack-name">REST APIs</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. FRONTEND -->
+        <div class="stack-category-row">
+          <div class="stack-cat-title">FRONTEND</div>
+          <div class="stack-items-grid">
+            <div class="stack-item">
+              <span class="stack-icon-box" style="background:#F7DF1E; color:#000"><i class="fa-brands fa-js"></i></span>
+              <span class="stack-name">JavaScript</span>
+            </div>
+            <div class="stack-item">
+              <span class="stack-icon-box" style="background:#23272F; color:#61DAFB"><i class="fa-brands fa-react"></i></span>
+              <span class="stack-name">React</span>
+            </div>
+            <div class="stack-item">
+              <span class="stack-icon-box" style="background:#06B6D4; color:#fff"><i class="fa-solid fa-wind"></i></span>
+              <span class="stack-name">Tailwind CSS</span>
+            </div>
+            <div class="stack-item">
+              <span class="stack-icon-box" style="background:#E34F26; color:#fff"><i class="fa-brands fa-html5"></i></span>
+              <span class="stack-name">HTML5</span>
+            </div>
+            <div class="stack-item">
+              <span class="stack-icon-box" style="background:#1572B6; color:#fff"><i class="fa-brands fa-css3-alt"></i></span>
+              <span class="stack-name">CSS3</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. DATABASE -->
+        <div class="stack-category-row">
+          <div class="stack-cat-title">DATABASE</div>
+          <div class="stack-items-grid">
+            <div class="stack-item">
+              <span class="stack-icon-box" style="background:#336791; color:#fff"><i class="fa-solid fa-database"></i></span>
+              <span class="stack-name">PostgreSQL</span>
+            </div>
+            <div class="stack-item">
+              <span class="stack-icon-box" style="background:#47A248; color:#fff"><i class="fa-solid fa-leaf"></i></span>
+              <span class="stack-name">MongoDB</span>
+            </div>
+            <div class="stack-item">
+              <span class="stack-icon-box" style="background:#00758F; color:#fff"><i class="fa-solid fa-server"></i></span>
+              <span class="stack-name">SQL</span>
+            </div>
+            <div class="stack-item">
+              <span class="stack-icon-box" style="background:#4F46E5; color:#fff"><i class="fa-solid fa-cubes-stacked"></i></span>
+              <span class="stack-name">Vector DBs</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. TOOLS & DEVOPS -->
+        <div class="stack-category-row">
+          <div class="stack-cat-title">TOOLS</div>
+          <div class="stack-items-grid">
+            <div class="stack-item">
+              <span class="stack-icon-box" style="background:#2496ED; color:#fff"><i class="fa-brands fa-docker"></i></span>
+              <span class="stack-name">Docker</span>
+            </div>
+            <div class="stack-item">
+              <span class="stack-icon-box" style="background:#F05032; color:#fff"><i class="fa-brands fa-git-alt"></i></span>
+              <span class="stack-name">Git</span>
+            </div>
+            <div class="stack-item">
+              <span class="stack-icon-box" style="background:#181717; color:#fff"><i class="fa-brands fa-github"></i></span>
+              <span class="stack-name">GitHub</span>
+            </div>
+            <div class="stack-item">
+              <span class="stack-icon-box" style="background:#FF9900; color:#000"><i class="fa-brands fa-aws"></i></span>
+              <span class="stack-name">AWS</span>
+            </div>
+            <div class="stack-item">
+              <span class="stack-icon-box" style="background:#FCC624; color:#000"><i class="fa-brands fa-linux"></i></span>
+              <span class="stack-name">Linux</span>
+            </div>
+            <div class="stack-item">
+              <span class="stack-icon-box" style="background:#007ACC; color:#fff"><i class="fa-solid fa-code"></i></span>
+              <span class="stack-name">VS Code</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
 
   <script src="script.js"></script>
 </body>

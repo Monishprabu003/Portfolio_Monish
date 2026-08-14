@@ -56,10 +56,10 @@
   // Multilingual greetings list (English, French, Spanish, Hindi, Tamil, German, Italian, Portuguese, Japanese)
   const greetings = [
     'HELLO',
-    'BONJOUR',
     'HOLA',
-    'नमस्ते',
     'வணக்கம்',
+    'BONJOUR',
+    'नमस्ते',
     'HALLO',
     'CIAO',
     'OLÀ',
@@ -137,9 +137,9 @@
    3. SUBTLE MOUSE PARALLAX (Portrait & Brand Title)
    ───────────────────────────────────────────────────────────── */
 (function initParallax() {
-  const avatar = document.getElementById('hero-avatar');
-  const brand  = document.querySelector('.hero-brand-title');
-  if (!avatar || !brand) return;
+  const avatarWrapper = document.querySelector('.portrait-wrapper');
+  const brand         = document.querySelector('.hero-brand-title');
+  if (!avatarWrapper || !brand) return;
 
   document.addEventListener('mousemove', (e) => {
     if (window.innerWidth < 850) return;
@@ -147,8 +147,169 @@
     const normX = (e.clientX / window.innerWidth - 0.5) * 2;
     const normY = (e.clientY / window.innerHeight - 0.5) * 2;
 
-    // Subtle 3D tilt
-    avatar.style.transform = `translateX(-50%) translate3d(${normX * 12}px, ${normY * 8}px, 0) scale(1.02)`;
-    brand.style.transform  = `translate(-50%, -50%) translate3d(${normX * -15}px, ${normY * -10}px, 0)`;
+    // Smooth subtle floating without breaking center alignment
+    avatarWrapper.style.transform = `translateX(calc(-50% + ${normX * 8}px)) translateY(${normY * 4}px)`;
+    brand.style.transform         = `translate(calc(-50% + ${normX * -10}px), calc(-50% + ${normY * -6}px))`;
+  });
+})();
+
+/* ─────────────────────────────────────────────────────────────
+   4. SCROLL-DRIVEN DYNAMIC VERTICAL CHAINS (Up/Down Momentum)
+   ───────────────────────────────────────────────────────────── */
+(function initScrollChains() {
+  const trackLeft  = document.getElementById('chain-track-left');
+  const trackRight = document.getElementById('chain-track-right');
+  if (!trackLeft || !trackRight) return;
+
+  let lastScrollY = window.scrollY;
+  let leftPos     = -120;
+  let rightPos    = -60;
+
+  window.addEventListener('scroll', () => {
+    const currentScrollY = window.scrollY;
+    const scrollDelta    = currentScrollY - lastScrollY;
+    lastScrollY          = currentScrollY;
+
+    // Left chain moves UP when scrolling down (and down when scrolling up)
+    leftPos  -= scrollDelta * 0.45;
+    // Right chain moves in counter-direction or alternate speed
+    rightPos += scrollDelta * 0.35;
+
+    // Wrap around for seamless infinite vertical chain loop
+    if (leftPos < -350)  leftPos = 0;
+    if (leftPos > 50)    leftPos = -300;
+    if (rightPos > 50)   rightPos = -300;
+    if (rightPos < -350) rightPos = 0;
+
+    trackLeft.style.transform  = `translate3d(0, ${leftPos}px, 0)`;
+    trackRight.style.transform = `translate3d(0, ${rightPos}px, 0)`;
+  }, { passive: true });
+})();
+
+/* ─────────────────────────────────────────────────────────────
+   5. PROJECT CARDS SCROLL REVEAL (Staggered Animation)
+   ───────────────────────────────────────────────────────────── */
+(function initCardsReveal() {
+  const cards = document.querySelectorAll('.pcard');
+  if (!cards.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.style.opacity   = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }, (i % 3) * 120);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  cards.forEach(card => {
+    card.style.opacity    = '0';
+    card.style.transform  = 'translateY(36px)';
+    card.style.transition = 'opacity 0.6s var(--ease-smooth), transform 0.6s var(--ease-smooth)';
+    observer.observe(card);
+  });
+})();
+
+/* ─────────────────────────────────────────────────────────────
+   6. EDUCATION ROWS HOVER PREVIEW (Floating Card Tracking)
+   ───────────────────────────────────────────────────────────── */
+(function initEducationHoverPreview() {
+  const preview = document.getElementById('edu-hover-preview');
+  const visual  = document.getElementById('edu-preview-visual');
+  const rows    = document.querySelectorAll('.edu-row');
+  const eduStage = document.getElementById('education');
+
+  if (!preview || !visual || !rows.length || !eduStage) return;
+
+  const visualData = {
+    'preview-college': {
+      class: 'preview-college',
+      icon: '<i class="fa-solid fa-graduation-cap"></i>',
+      label: 'Sri Shakthi Institute'
+    },
+    'preview-hsc': {
+      class: 'preview-hsc',
+      icon: '<i class="fa-solid fa-school"></i>',
+      label: 'Higher Secondary (HSC)'
+    },
+    'preview-sslc': {
+      class: 'preview-sslc',
+      icon: '<i class="fa-solid fa-book-open"></i>',
+      label: 'Secondary School (SSLC)'
+    }
+  };
+
+  let targetX = 0, targetY = 0;
+  let currentX = 0, currentY = 0;
+  let isHovering = false;
+
+  rows.forEach(row => {
+    row.addEventListener('mouseenter', () => {
+      isHovering = true;
+      rows.forEach(r => r.classList.remove('active'));
+      row.classList.add('active');
+
+      const type = row.getAttribute('data-visual');
+      const data = visualData[type] || visualData['preview-college'];
+
+      visual.className = `edu-preview-visual ${data.class}`;
+      visual.innerHTML = `
+        <div class="preview-glow"></div>
+        <div class="preview-icon">${data.icon}</div>
+        <span class="preview-label">${data.label}</span>
+      `;
+
+      preview.classList.add('visible');
+    });
+
+    row.addEventListener('mousemove', (e) => {
+      const rect = eduStage.getBoundingClientRect();
+      targetX = e.clientX - rect.left + 24;
+      targetY = e.clientY - rect.top - 70;
+    });
+
+    row.addEventListener('mouseleave', () => {
+      isHovering = false;
+      preview.classList.remove('visible');
+    });
+  });
+
+  function renderPreviewMotion() {
+    if (isHovering) {
+      currentX += (targetX - currentX) * 0.18;
+      currentY += (targetY - currentY) * 0.18;
+      preview.style.left = `${currentX}px`;
+      preview.style.top  = `${currentY}px`;
+    }
+    requestAnimationFrame(renderPreviewMotion);
+  }
+  renderPreviewMotion();
+})();
+
+/* ─────────────────────────────────────────────────────────────
+   7. MY STACK ITEMS SCROLL REVEAL
+   ───────────────────────────────────────────────────────────── */
+(function initStackReveal() {
+  const stackRows = document.querySelectorAll('.stack-category-row');
+  if (!stackRows.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity   = '1';
+        entry.target.style.transform = 'translateY(0)';
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  stackRows.forEach(row => {
+    row.style.opacity    = '0';
+    row.style.transform  = 'translateY(28px)';
+    row.style.transition = 'opacity 0.55s var(--ease-smooth), transform 0.55s var(--ease-smooth)';
+    observer.observe(row);
   });
 })();
