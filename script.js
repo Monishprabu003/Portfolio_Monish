@@ -92,7 +92,7 @@
         index++;
 
         // Display timing per word (faster rhythm for cinematic feel)
-        setTimeout(showNextWord, 560);
+        setTimeout(showNextWord, 360);
       }, 140);
     }
 
@@ -113,7 +113,7 @@
         setTimeout(() => {
           eyeOverlay.classList.add('eye-open');
           isPlaying = false;
-        }, 300);
+        }, 200);
       });
     }, 400);
   }
