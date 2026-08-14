@@ -21,6 +21,7 @@
 
   --font-main:        'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-display:     'Syne', 'Space Grotesk', sans-serif;
+  --font-heading:     'Space Grotesk', 'Inter', -apple-system, sans-serif;
   --font-mono:        'Space Mono', monospace;
 
   --radius-pill:      9999px;
@@ -445,13 +446,13 @@ body:has(button:hover) #cursor-ring {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: min(340px, 32vw);
-  height: 58vh;
+  width: min(420px, 39vw);
+  height: 60vh;
   display: flex;
   align-items: flex-end;
   justify-content: center;
   z-index: 2;
-  border-radius: 200px 200px 0 0;
+  border-radius: 260px 260px 0 0;
   overflow: hidden;
   background: #000000;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.22);
@@ -504,10 +505,11 @@ body:has(button:hover) #cursor-ring {
 }
 
 .role-title {
-  font-family: var(--font-display);
-  font-size: clamp(1.8rem, 3.2vw, 2.4rem);
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 3vw, 2.3rem);
   font-weight: 800;
-  line-height: 1.1;
+  letter-spacing: -0.5px;
+  line-height: 1.15;
   color: #000000;
 }
 
@@ -910,6 +912,7 @@ body:has(button:hover) #cursor-ring {
   justify-content: center;
   font-size: 0.95rem;
   transition: all 0.25s var(--ease-smooth);
+  flex-shrink: 0;
 }
 
 .pcard-link-btn:hover {
@@ -917,25 +920,48 @@ body:has(button:hover) #cursor-ring {
   transform: scale(1.1) translateY(-2px);
 }
 
-.pcard-live-btn {
+.pcard-demo-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.48rem 0.95rem;
   background: #ffffff;
   color: #000000;
   border: 1.5px solid rgba(0, 0, 0, 0.12);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  border-radius: var(--radius-pill);
+  font-size: 0.78rem;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  transition: all 0.25s var(--ease-smooth);
+  white-space: nowrap;
 }
 
-.pcard-live-btn:hover {
+.pcard-demo-btn i {
+  font-size: 0.72rem;
+  transition: transform 0.2s ease;
+}
+
+.pcard-demo-btn:hover {
   background: #000000;
   color: #ffffff;
   border-color: #000000;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+.pcard-demo-btn:hover i {
+  transform: translate(2px, -2px);
 }
 
 .pcard-title {
-  font-family: var(--font-display);
-  font-size: 1.45rem;
-  font-weight: 800;
-  color: #000000;
-  letter-spacing: -0.5px;
+  font-family: var(--font-heading);
+  font-size: 1.32rem;
+  font-weight: 700;
+  color: #0a0a0a;
+  letter-spacing: -0.3px;
+  line-height: 1.3;
+  overflow-wrap: break-word;
+  word-break: normal;
 }
 
 .pcard-desc {
@@ -1096,14 +1122,15 @@ body:has(button:hover) #cursor-ring {
 }
 
 .edu-role-title {
-  font-family: var(--font-display);
-  font-size: clamp(1.25rem, 2.2vw, 1.75rem);
-  font-weight: 800;
+  font-family: var(--font-heading);
+  font-size: clamp(1.15rem, 2vw, 1.55rem);
+  font-weight: 700;
   color: #000000;
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  letter-spacing: -0.5px;
+  letter-spacing: -0.3px;
+  line-height: 1.3;
 }
 
 .edu-arrow {
@@ -1279,8 +1306,8 @@ body:has(button:hover) #cursor-ring {
 
 .stack-category-row {
   display: grid;
-  grid-template-columns: minmax(240px, 320px) 1fr;
-  gap: 2.5rem;
+  grid-template-columns: 340px 1fr;
+  gap: 3rem;
   align-items: center;
   padding-bottom: 2.8rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
@@ -1293,13 +1320,14 @@ body:has(button:hover) #cursor-ring {
 
 .stack-cat-title {
   font-family: var(--font-display);
-  font-size: clamp(1.8rem, 2.8vw, 2.6rem);
+  font-size: clamp(1.5rem, 2.2vw, 2.1rem);
   font-weight: 900;
   letter-spacing: -0.5px;
   color: #0a0a0a;
   text-transform: uppercase;
   line-height: 1.1;
   white-space: nowrap;
+  min-width: 0;
 }
 
 .stack-items-grid {
