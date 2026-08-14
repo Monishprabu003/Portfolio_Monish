@@ -1218,8 +1218,8 @@ body:has(button:hover) #cursor-ring {
 
 .stack-category-row {
   display: grid;
-  grid-template-columns: 240px 1fr;
-  gap: 3rem;
+  grid-template-columns: minmax(240px, 320px) 1fr;
+  gap: 2.5rem;
   align-items: center;
   padding-bottom: 2.8rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
@@ -1232,12 +1232,13 @@ body:has(button:hover) #cursor-ring {
 
 .stack-cat-title {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 3.6vw, 3rem);
+  font-size: clamp(1.8rem, 2.8vw, 2.6rem);
   font-weight: 900;
-  letter-spacing: 0.5px;
+  letter-spacing: -0.5px;
   color: #0a0a0a;
   text-transform: uppercase;
-  line-height: 1;
+  line-height: 1.1;
+  white-space: nowrap;
 }
 
 .stack-items-grid {

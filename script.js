@@ -10,35 +10,35 @@
    1. CUSTOM MAGNETIC CURSOR
    ───────────────────────────────────────────────────────────── */
 (function initCursor() {
-  const dot  = document.getElementById('cursor-dot');
+  const dot = document.getElementById('cursor-dot');
   const ring = document.getElementById('cursor-ring');
   if (!dot || !ring) return;
 
   let mouseX = 0, mouseY = 0;
-  let ringX  = 0, ringY  = 0;
+  let ringX = 0, ringY = 0;
 
   document.addEventListener('mousemove', (e) => {
     mouseX = e.clientX;
     mouseY = e.clientY;
     dot.style.left = mouseX + 'px';
-    dot.style.top  = mouseY + 'px';
+    dot.style.top = mouseY + 'px';
   });
 
   function renderCursor() {
     ringX += (mouseX - ringX) * 0.15;
     ringY += (mouseY - ringY) * 0.15;
     ring.style.left = ringX + 'px';
-    ring.style.top  = ringY + 'px';
+    ring.style.top = ringY + 'px';
     requestAnimationFrame(renderCursor);
   }
   renderCursor();
 
   document.addEventListener('mouseleave', () => {
-    dot.style.opacity  = '0';
+    dot.style.opacity = '0';
     ring.style.opacity = '0';
   });
   document.addEventListener('mouseenter', () => {
-    dot.style.opacity  = '1';
+    dot.style.opacity = '1';
     ring.style.opacity = '1';
   });
 })();
@@ -47,9 +47,9 @@
    2. EYELID SHUTTER & MULTILINGUAL GREETINGS ANIMATION
    ───────────────────────────────────────────────────────────── */
 (function initEyeGreetings() {
-  const eyeOverlay   = document.getElementById('eye-loader');
+  const eyeOverlay = document.getElementById('eye-loader');
   const greetingText = document.getElementById('greeting-text');
-  const replayBtn    = document.getElementById('btn-replay-intro');
+  const replayBtn = document.getElementById('btn-replay-intro');
 
   if (!eyeOverlay || !greetingText) return;
 
@@ -92,7 +92,7 @@
         index++;
 
         // Display timing per word (faster rhythm for cinematic feel)
-        setTimeout(showNextWord, 260);
+        setTimeout(showNextWord, 560);
       }, 140);
     }
 
@@ -138,7 +138,7 @@
    ───────────────────────────────────────────────────────────── */
 (function initParallax() {
   const avatarWrapper = document.querySelector('.portrait-wrapper');
-  const brand         = document.querySelector('.hero-brand-title');
+  const brand = document.querySelector('.hero-brand-title');
   if (!avatarWrapper || !brand) return;
 
   document.addEventListener('mousemove', (e) => {
@@ -149,7 +149,7 @@
 
     // Smooth subtle floating without breaking center alignment
     avatarWrapper.style.transform = `translateX(calc(-50% + ${normX * 8}px)) translateY(${normY * 4}px)`;
-    brand.style.transform         = `translate(calc(-50% + ${normX * -10}px), calc(-50% + ${normY * -6}px))`;
+    brand.style.transform = `translate(calc(-50% + ${normX * -10}px), calc(-50% + ${normY * -6}px))`;
   });
 })();
 
@@ -157,31 +157,31 @@
    4. SCROLL-DRIVEN DYNAMIC VERTICAL CHAINS (Up/Down Momentum)
    ───────────────────────────────────────────────────────────── */
 (function initScrollChains() {
-  const trackLeft  = document.getElementById('chain-track-left');
+  const trackLeft = document.getElementById('chain-track-left');
   const trackRight = document.getElementById('chain-track-right');
   if (!trackLeft || !trackRight) return;
 
   let lastScrollY = window.scrollY;
-  let leftPos     = -120;
-  let rightPos    = -60;
+  let leftPos = -120;
+  let rightPos = -60;
 
   window.addEventListener('scroll', () => {
     const currentScrollY = window.scrollY;
-    const scrollDelta    = currentScrollY - lastScrollY;
-    lastScrollY          = currentScrollY;
+    const scrollDelta = currentScrollY - lastScrollY;
+    lastScrollY = currentScrollY;
 
     // Left chain moves UP when scrolling down (and down when scrolling up)
-    leftPos  -= scrollDelta * 0.45;
+    leftPos -= scrollDelta * 0.45;
     // Right chain moves in counter-direction or alternate speed
     rightPos += scrollDelta * 0.35;
 
     // Wrap around for seamless infinite vertical chain loop
-    if (leftPos < -350)  leftPos = 0;
-    if (leftPos > 50)    leftPos = -300;
-    if (rightPos > 50)   rightPos = -300;
+    if (leftPos < -350) leftPos = 0;
+    if (leftPos > 50) leftPos = -300;
+    if (rightPos > 50) rightPos = -300;
     if (rightPos < -350) rightPos = 0;
 
-    trackLeft.style.transform  = `translate3d(0, ${leftPos}px, 0)`;
+    trackLeft.style.transform = `translate3d(0, ${leftPos}px, 0)`;
     trackRight.style.transform = `translate3d(0, ${rightPos}px, 0)`;
   }, { passive: true });
 })();
@@ -197,7 +197,7 @@
     entries.forEach((entry, i) => {
       if (entry.isIntersecting) {
         setTimeout(() => {
-          entry.target.style.opacity   = '1';
+          entry.target.style.opacity = '1';
           entry.target.style.transform = 'translateY(0)';
         }, (i % 3) * 120);
         observer.unobserve(entry.target);
@@ -206,8 +206,8 @@
   }, { threshold: 0.1 });
 
   cards.forEach(card => {
-    card.style.opacity    = '0';
-    card.style.transform  = 'translateY(36px)';
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(36px)';
     card.style.transition = 'opacity 0.6s var(--ease-smooth), transform 0.6s var(--ease-smooth)';
     observer.observe(card);
   });
@@ -218,8 +218,8 @@
    ───────────────────────────────────────────────────────────── */
 (function initEducationHoverPreview() {
   const preview = document.getElementById('edu-hover-preview');
-  const visual  = document.getElementById('edu-preview-visual');
-  const rows    = document.querySelectorAll('.edu-row');
+  const visual = document.getElementById('edu-preview-visual');
+  const rows = document.querySelectorAll('.edu-row');
   const eduStage = document.getElementById('education');
 
   if (!preview || !visual || !rows.length || !eduStage) return;
@@ -282,7 +282,7 @@
       currentX += (targetX - currentX) * 0.18;
       currentY += (targetY - currentY) * 0.18;
       preview.style.left = `${currentX}px`;
-      preview.style.top  = `${currentY}px`;
+      preview.style.top = `${currentY}px`;
     }
     requestAnimationFrame(renderPreviewMotion);
   }
@@ -299,7 +299,7 @@
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.style.opacity   = '1';
+        entry.target.style.opacity = '1';
         entry.target.style.transform = 'translateY(0)';
         observer.unobserve(entry.target);
       }
@@ -307,8 +307,8 @@
   }, { threshold: 0.15 });
 
   stackRows.forEach(row => {
-    row.style.opacity    = '0';
-    row.style.transform  = 'translateY(28px)';
+    row.style.opacity = '0';
+    row.style.transform = 'translateY(28px)';
     row.style.transition = 'opacity 0.55s var(--ease-smooth), transform 0.55s var(--ease-smooth)';
     observer.observe(row);
   });
