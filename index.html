@@ -2,71 +2,593 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Background</title>
-    <meta name="description" content="Portfolio Background">
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:wght@700&family=Dancing+Script:wght@700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Monish Prabu B — Software Developer</title>
+  <meta name="description"
+    content="Portfolio of Monish Prabu B — a highly skilled Software Developer specializing in Python and the MERN stack, building scalable and secure applications." />
+  <meta name="keywords" content="Monish Prabu, Software Developer, Python, MERN Stack, Portfolio, Full Stack" />
+  <meta name="author" content="Monish Prabu B" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Monish Prabu B — Software Developer" />
+  <meta property="og:description"
+    content="Highly skilled Software Developer specializing in Python and MERN Stack." />
+  <meta property="og:type" content="website" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-    <div class="logo">MP</div>
-    <div class="split-container">
-        <div class="split-bg">
-            <div class="left-side"></div>
-            <div class="right-side"></div>
+  <!-- Magnetic Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
+
+  <!-- Particle Canvas -->
+  <canvas id="particle-canvas"></canvas>
+
+  <!-- ─── NAVIGATION ─── -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo" id="nav-logo-link">
+        <span class="logo-text">MP</span>
+        <span class="logo-dot"></span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+        <li><a href="#skills" class="nav-link" data-section="skills">Skills</a></li>
+        <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
+        <li><a href="#experience" class="nav-link" data-section="experience">Experience</a></li>
+        <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+      </ul>
+      <a href="mailto:monishpraabu392005@gmail.com" class="nav-cta" id="nav-cta-btn">
+        <i class="fa-solid fa-paper-plane"></i> Hire Me
+      </a>
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <ul>
+      <li><a href="#about" class="mobile-link">About</a></li>
+      <li><a href="#skills" class="mobile-link">Skills</a></li>
+      <li><a href="#projects" class="mobile-link">Projects</a></li>
+      <li><a href="#experience" class="mobile-link">Experience</a></li>
+      <li><a href="#contact" class="mobile-link">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- ─── HERO SECTION ─── -->
+  <section class="hero" id="hero">
+    <div class="hero-bg-glow hero-glow-1"></div>
+    <div class="hero-bg-glow hero-glow-2"></div>
+    <div class="hero-bg-glow hero-glow-3"></div>
+
+    <div class="hero-content">
+      <div class="hero-badge reveal-up">
+        <span class="badge-dot"></span>
+        <span>Available for opportunities</span>
+      </div>
+
+      <h1 class="hero-title reveal-up">
+        <span class="hero-greeting">Hi, I'm</span>
+        <span class="hero-name">Monish Prabu B</span>
+      </h1>
+
+      <div class="hero-typewriter reveal-up">
+        <span class="typewriter-prefix">I build </span>
+        <span class="typewriter-text" id="typewriter"></span>
+        <span class="typewriter-cursor">|</span>
+      </div>
+
+      <p class="hero-bio reveal-up">
+        A highly skilled and detail-oriented <strong>Software Developer</strong> with a robust background in
+        building scalable and secure applications. Primary focus on <strong>Python</strong> and the
+        <strong>MERN stack</strong>.
+      </p>
+
+      <div class="hero-stats reveal-up">
+        <div class="stat-item">
+          <span class="stat-number" data-target="15">0</span><span class="stat-plus">+</span>
+          <span class="stat-label">Open Source PRs</span>
         </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="20">0</span><span class="stat-plus">+</span>
+          <span class="stat-label">Workshops Organized</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="500">0</span><span class="stat-plus">+</span>
+          <span class="stat-label">Students Mentored</span>
+        </div>
+      </div>
 
-        <main class="content">
-            <div class="left-content">
-                <a href="about.html" class="about-btn">About</a>
-                <div class="white-border-box">
+      <div class="hero-actions reveal-up">
+        <a href="#projects" class="btn-primary" id="hero-projects-btn">
+          <i class="fa-solid fa-rocket"></i> View My Work
+        </a>
+        <a href="#contact" class="btn-outline" id="hero-contact-btn">
+          <i class="fa-solid fa-envelope"></i> Get In Touch
+        </a>
+      </div>
 
-                    <h1 class="hi-text">Hi,</h1>
-                    <h5 class="name-text">I'm Monish Prabu B</h5>
-                    <p class="profile-text">A highly skilled and detail-oriented Software Developer
-                        with a robust background in building scalable and secure applications. With a primary focus on
-                        Python and the
-                        MERN stack. </p>
-                </div>
-                <a href="projects.html" class="my-projects-btn">My Projects</a>
-            </div>
-            <div class="right-content">
-                <a href="activities.html" class="activities-btn">Activities & Experience</a>
-                <div class="black-border-box">
-                    <div class="contact-header">
-                        <i class="fa-solid fa-envelope-open-text contact-main-icon"></i>
-                        <h2 class="contact-title">Get in Touch</h2>
-                    </div>
-                    <p class="contact-subtitle">Connect with me using the buttons below.</p>
-
-                    <div class="contact-buttons">
-                        <a href="mailto:monishpraabu392005@gmail.com" class="c-btn email">
-                            <i class="fa-solid fa-envelope"></i>
-                            <span>Email</span>
-                        </a>
-                        <a href="https://www.linkedin.com/in/monish-prabu/" target="_blank" class="c-btn linkedin">
-                            <i class="fa-brands fa-linkedin"></i>
-                            <span>LinkedIn</span>
-                        </a>
-                        <a href="https://github.com/Monishprabu003" target="_blank" class="c-btn github">
-                            <i class="fa-brands fa-github"></i>
-                            <span>GitHub</span>
-                        </a>
-                    </div>
-                </div>
-                <a href="skills.html" class="my-skills-btn">My Skills</a>
-            </div>
-        </main>
+      <div class="hero-social reveal-up">
+        <a href="https://github.com/Monishprabu003" target="_blank" rel="noopener" class="social-link"
+          id="hero-github">
+          <i class="fa-brands fa-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/monish-prabu/" target="_blank" rel="noopener" class="social-link"
+          id="hero-linkedin">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+        <a href="mailto:monishpraabu392005@gmail.com" class="social-link" id="hero-email">
+          <i class="fa-solid fa-envelope"></i>
+        </a>
+      </div>
     </div>
 
-    <script src="script.js"></script>
+    <div class="hero-visual">
+      <div class="avatar-frame reveal-right">
+        <div class="avatar-ring ring-1"></div>
+        <div class="avatar-ring ring-2"></div>
+        <div class="avatar-ring ring-3"></div>
+        <div class="avatar-img-wrap">
+          <img src="images/avatar.png" alt="Monish Prabu B" class="avatar-img" />
+          <div class="avatar-glow"></div>
+        </div>
+        <div class="floating-chip chip-python">
+          <i class="fa-brands fa-python"></i> Python
+        </div>
+        <div class="floating-chip chip-react">
+          <i class="fa-brands fa-react"></i> MERN
+        </div>
+        <div class="floating-chip chip-docker">
+          <i class="fa-brands fa-docker"></i> Docker
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-indicator">
+      <span>Scroll</span>
+      <div class="scroll-line">
+        <div class="scroll-dot"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── ABOUT SECTION ─── -->
+  <section class="section about-section" id="about">
+    <div class="section-container">
+      <div class="section-header reveal-up">
+        <span class="section-label">Who I am</span>
+        <h2 class="section-title">About Me</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-card glass-card reveal-left" id="about-journey">
+          <div class="about-card-icon">
+            <i class="fa-solid fa-user"></i>
+          </div>
+          <h3>My Journey</h3>
+          <p>I am a passionate Software Developer based in India, specializing in building robust web
+            applications and solving complex architectural challenges. With a focus on performance and user
+            experience, I translate creative ideas into functional reality.</p>
+        </div>
+
+        <div class="about-card glass-card reveal-up" id="about-education">
+          <div class="about-card-icon">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </div>
+          <h3>Education</h3>
+          <p>Bachelor of Technology in Computer Science &amp; Engineering. Constant learner, staying
+            updated with the latest industry trends and emerging technologies.</p>
+        </div>
+
+        <div class="about-card glass-card reveal-right" id="about-interests">
+          <div class="about-card-icon">
+            <i class="fa-solid fa-heart"></i>
+          </div>
+          <h3>Interests</h3>
+          <p>When I'm not coding, you can find me exploring new tech stacks, contributing to open-source
+            projects, or perfecting my design skills to create more intuitive interfaces.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SKILLS SECTION ─── -->
+  <section class="section skills-section" id="skills">
+    <div class="section-container">
+      <div class="section-header reveal-up">
+        <span class="section-label">What I work with</span>
+        <h2 class="section-title">Skills &amp; Technologies</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="skills-grid">
+
+        <div class="skill-category glass-card reveal-left" id="skill-frontend">
+          <div class="skill-category-header">
+            <div class="skill-cat-icon frontend-icon">
+              <i class="fa-solid fa-table-cells"></i>
+            </div>
+            <h3>Frontend</h3>
+          </div>
+          <div class="skill-chips">
+            <div class="skill-chip" id="sc-html">
+              <i class="fa-brands fa-html5" style="color:#E34F26"></i> HTML
+            </div>
+            <div class="skill-chip" id="sc-css">
+              <i class="fa-brands fa-css3-alt" style="color:#1572B6"></i> CSS
+            </div>
+            <div class="skill-chip" id="sc-js">
+              <i class="fa-brands fa-js" style="color:#F7DF1E"></i> JavaScript
+            </div>
+            <div class="skill-chip" id="sc-tailwind">
+              <i class="fa-solid fa-wind" style="color:#06B6D4"></i> Tailwind
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-category glass-card reveal-up" id="skill-backend">
+          <div class="skill-category-header">
+            <div class="skill-cat-icon backend-icon">
+              <i class="fa-solid fa-server"></i>
+            </div>
+            <h3>Backend</h3>
+          </div>
+          <div class="skill-chips">
+            <div class="skill-chip" id="sc-node">
+              <i class="fa-brands fa-node-js" style="color:#339933"></i> Node.js
+            </div>
+            <div class="skill-chip" id="sc-express">
+              <i class="fa-solid fa-server" style="color:#aaa"></i> Express
+            </div>
+            <div class="skill-chip" id="sc-flask">
+              <i class="fa-solid fa-flask" style="color:#aaa"></i> Flask
+            </div>
+            <div class="skill-chip" id="sc-rest">
+              <i class="fa-solid fa-cloud" style="color:#ff4b2b"></i> REST APIs
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-category glass-card reveal-right" id="skill-db">
+          <div class="skill-category-header">
+            <div class="skill-cat-icon db-icon">
+              <i class="fa-solid fa-database"></i>
+            </div>
+            <h3>Databases</h3>
+          </div>
+          <div class="skill-chips">
+            <div class="skill-chip" id="sc-mongo">
+              <i class="fa-solid fa-leaf" style="color:#47A248"></i> MongoDB
+            </div>
+            <div class="skill-chip" id="sc-postgres">
+              <i class="fa-solid fa-database" style="color:#336791"></i> PostgreSQL
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-category glass-card reveal-left" id="skill-lang">
+          <div class="skill-category-header">
+            <div class="skill-cat-icon lang-icon">
+              <i class="fa-solid fa-code"></i>
+            </div>
+            <h3>Languages</h3>
+          </div>
+          <div class="skill-chips">
+            <div class="skill-chip" id="sc-python">
+              <i class="fa-brands fa-python" style="color:#3776AB"></i> Python
+            </div>
+            <div class="skill-chip" id="sc-cpp">
+              <i class="fa-solid fa-c" style="color:#00599C"></i> C++
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-category glass-card reveal-up" id="skill-devops">
+          <div class="skill-category-header">
+            <div class="skill-cat-icon devops-icon">
+              <i class="fa-brands fa-docker"></i>
+            </div>
+            <h3>DevOps</h3>
+          </div>
+          <div class="skill-chips">
+            <div class="skill-chip" id="sc-docker">
+              <i class="fa-brands fa-docker" style="color:#2496ED"></i> Docker
+            </div>
+            <div class="skill-chip" id="sc-jenkins">
+              <i class="fa-brands fa-jenkins" style="color:#D24939"></i> Jenkins
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-category glass-card reveal-right" id="skill-tools">
+          <div class="skill-category-header">
+            <div class="skill-cat-icon tools-icon">
+              <i class="fa-solid fa-wrench"></i>
+            </div>
+            <h3>Tools</h3>
+          </div>
+          <div class="skill-chips">
+            <div class="skill-chip" id="sc-git">
+              <i class="fa-brands fa-git-alt" style="color:#F05032"></i> Git
+            </div>
+            <div class="skill-chip" id="sc-github">
+              <i class="fa-brands fa-github" style="color:#ccc"></i> GitHub
+            </div>
+            <div class="skill-chip" id="sc-vscode">
+              <i class="fa-solid fa-code" style="color:#007ACC"></i> VS Code
+            </div>
+            <div class="skill-chip" id="sc-postman">
+              <i class="fa-solid fa-rocket" style="color:#FF6C37"></i> Postman
+            </div>
+            <div class="skill-chip" id="sc-vercel">
+              <i class="fa-solid fa-triangle-exclamation" style="color:#ccc"></i> Vercel
+            </div>
+            <div class="skill-chip" id="sc-figma">
+              <i class="fa-brands fa-figma" style="color:#F24E1E"></i> Figma
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PROJECTS SECTION ─── -->
+  <section class="section projects-section" id="projects">
+    <div class="section-container">
+      <div class="section-header reveal-up">
+        <span class="section-label">What I've built</span>
+        <h2 class="section-title">Projects</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="projects-grid">
+
+        <!-- Safe Pipe -->
+        <div class="project-card glass-card tilt-card reveal-up" id="project-safepipe">
+          <div class="project-card-top">
+            <div class="project-icon">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/ATKTharun1807/Safe_Pipe---DevSecOps-Project-" target="_blank"
+                rel="noopener" class="project-link-icon" id="safepipe-github" aria-label="GitHub">
+                <i class="fa-brands fa-github"></i>
+              </a>
+              <a href="#" class="project-link-icon" id="safepipe-demo" aria-label="Live Demo">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+            </div>
+          </div>
+          <h3 class="project-title">Safe Pipe</h3>
+          <p class="project-desc">A tool to detect and prevent secret leaks across CI/CD pipelines with
+            real-time alerts and scalable deployment. Built with a DevSecOps-first approach to keep
+            credentials safe across teams.</p>
+          <div class="project-tags">
+            <span class="ptag ptag-python"><i class="fa-brands fa-python"></i> Python</span>
+            <span class="ptag ptag-docker"><i class="fa-brands fa-docker"></i> Docker</span>
+            <span class="ptag ptag-jenkins"><i class="fa-brands fa-jenkins"></i> Jenkins</span>
+          </div>
+          <div class="project-card-shine"></div>
+        </div>
+
+        <!-- Placeholder card for future project -->
+        <div class="project-card glass-card project-card-wip reveal-up" id="project-next">
+          <div class="project-card-top">
+            <div class="project-icon project-icon-wip">
+              <i class="fa-solid fa-flask-vial"></i>
+            </div>
+          </div>
+          <h3 class="project-title">More Coming Soon</h3>
+          <p class="project-desc">Currently building new exciting projects. Stay tuned — follow my GitHub
+            for the latest updates and open-source contributions.</p>
+          <a href="https://github.com/Monishprabu003" target="_blank" rel="noopener"
+            class="project-github-cta" id="more-github-btn">
+            <i class="fa-brands fa-github"></i> Follow on GitHub
+          </a>
+          <div class="project-card-shine"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── EXPERIENCE & ACTIVITIES SECTION ─── -->
+  <section class="section experience-section" id="experience">
+    <div class="section-container">
+      <div class="section-header reveal-up">
+        <span class="section-label">My journey so far</span>
+        <h2 class="section-title">Activities &amp; Experience</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="exp-layout">
+
+        <!-- Timeline -->
+        <div class="timeline-wrap reveal-left">
+          <h3 class="exp-sub-title">Experience</h3>
+          <div class="timeline" id="experience-timeline">
+
+            <div class="timeline-item">
+              <div class="timeline-marker">
+                <div class="tl-dot"></div>
+                <div class="tl-line"></div>
+              </div>
+              <div class="timeline-body glass-card">
+                <span class="tl-date">2024 — Present</span>
+                <h4 class="tl-role">Senior Software Developer</h4>
+                <p class="tl-desc">Spearheading the core development of enterprise-grade SaaS platforms
+                  using Next.js and Microservices.</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-marker">
+                <div class="tl-dot"></div>
+                <div class="tl-line"></div>
+              </div>
+              <div class="timeline-body glass-card">
+                <span class="tl-date">2023 — 2024</span>
+                <h4 class="tl-role">Full Stack Intern</h4>
+                <p class="tl-desc">Architected internal monitoring tools that improved server performance
+                  by 40%.</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-marker">
+                <div class="tl-dot"></div>
+              </div>
+              <div class="timeline-body glass-card">
+                <span class="tl-date">2022 — 2023</span>
+                <h4 class="tl-role">Club President</h4>
+                <p class="tl-desc">Organized over 20+ workshops and coding competitions for 500+
+                  students.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Feats / Achievements -->
+        <div class="feats-wrap reveal-right">
+          <h3 class="exp-sub-title">Achievements</h3>
+          <div class="feats-list" id="feats-list">
+
+            <div class="feat-card glass-card" id="feat-hackathon">
+              <div class="feat-num">01</div>
+              <div class="feat-content">
+                <div class="feat-icon">
+                  <i class="fa-solid fa-trophy"></i>
+                </div>
+                <div class="feat-text">
+                  <h4>Hackathon Winner</h4>
+                  <p>Led a team of 4 to secure <strong>1st place</strong> in the Grand National Hackathon
+                    2025.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="feat-card glass-card" id="feat-opensource">
+              <div class="feat-num">02</div>
+              <div class="feat-content">
+                <div class="feat-icon">
+                  <i class="fa-brands fa-github"></i>
+                </div>
+                <div class="feat-text">
+                  <h4>Open Source Contributor</h4>
+                  <p>Successfully merged <strong>15+ PRs</strong> into major Python libraries with 1k+
+                    stars.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="feat-card glass-card" id="feat-speaker">
+              <div class="feat-num">03</div>
+              <div class="feat-content">
+                <div class="feat-icon">
+                  <i class="fa-solid fa-microphone-lines"></i>
+                </div>
+                <div class="feat-text">
+                  <h4>Technical Speaker</h4>
+                  <p>Presented on <strong>Scalable MERN Architectures</strong> at TechConnect Conference.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CONTACT SECTION ─── -->
+  <section class="section contact-section" id="contact">
+    <div class="contact-bg-glow"></div>
+    <div class="section-container">
+      <div class="section-header reveal-up">
+        <span class="section-label">Let's work together</span>
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="contact-content reveal-up">
+        <p class="contact-intro">
+          Whether you have a project in mind, want to collaborate, or just want to say hello — my inbox
+          is always open. I'll try my best to get back to you!
+        </p>
+
+        <div class="contact-cards">
+          <a href="mailto:monishpraabu392005@gmail.com" class="contact-card glass-card" id="contact-email-card">
+            <div class="contact-card-icon email-icon">
+              <i class="fa-solid fa-envelope"></i>
+            </div>
+            <div class="contact-card-text">
+              <span class="contact-card-label">Email</span>
+              <span class="contact-card-value">monishpraabu392005@gmail.com</span>
+            </div>
+            <i class="fa-solid fa-arrow-right contact-arrow"></i>
+          </a>
+
+          <a href="https://www.linkedin.com/in/monish-prabu/" target="_blank" rel="noopener"
+            class="contact-card glass-card" id="contact-linkedin-card">
+            <div class="contact-card-icon linkedin-icon">
+              <i class="fa-brands fa-linkedin"></i>
+            </div>
+            <div class="contact-card-text">
+              <span class="contact-card-label">LinkedIn</span>
+              <span class="contact-card-value">linkedin.com/in/monish-prabu</span>
+            </div>
+            <i class="fa-solid fa-arrow-right contact-arrow"></i>
+          </a>
+
+          <a href="https://github.com/Monishprabu003" target="_blank" rel="noopener"
+            class="contact-card glass-card" id="contact-github-card">
+            <div class="contact-card-icon github-icon">
+              <i class="fa-brands fa-github"></i>
+            </div>
+            <div class="contact-card-text">
+              <span class="contact-card-label">GitHub</span>
+              <span class="contact-card-value">github.com/Monishprabu003</span>
+            </div>
+            <i class="fa-solid fa-arrow-right contact-arrow"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <span class="footer-logo">MP<span class="footer-dot">.</span></span>
+      <p class="footer-text">Designed &amp; built by <strong>Monish Prabu B</strong></p>
+      <p class="footer-copy">&copy; 2025 All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 
 </html>
