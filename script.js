@@ -309,11 +309,11 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
   if (!el) return;
 
   const phrases = [
-    'scalable web apps.',
-    'secure CI/CD pipelines.',
-    'RESTful APIs.',
-    'full-stack solutions.',
-    'beautiful interfaces.',
+    'AI-powered applications.',
+    'RAG & LLM systems.',
+    'full-stack AI products.',
+    'intelligent AI agents.',
+    'real-world solutions.',
   ];
   let pi = 0, ci = 0, del = false;
 
@@ -416,7 +416,9 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
   if (!dots.length || !sections.length) return;
 
   const map = {};
-  sections.forEach((s, i) => { if (s.id) map[s.id] = i; });
+  sections.forEach((s, i) => { if (s.id) map[s.id] = i; })
+  // Support renamed sections
+  // hero=0, about=1, skills=2, projects=3, achievements=4, contact=5
 
   const obs = new IntersectionObserver(entries => {
     entries.forEach(en => {

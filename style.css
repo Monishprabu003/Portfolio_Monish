@@ -1,6 +1,7 @@
 /* ═══════════════════════════════════════════════
-   MONISH PRABU B — PORTFOLIO  v2
+   MONISH PRABU B — PORTFOLIO  v3
    Theme: Dark · Glassmorphism · 3D · Full-screen snap
+   AI Engineer · Full-Stack Developer
    ═══════════════════════════════════════════════ */
 
 /* ── TOKENS ── */
@@ -460,12 +461,19 @@ body:has(a:hover) #cursor-ring { width:52px; height:52px; border-color:var(--c);
 #projects { background: radial-gradient(ellipse at 70% 40%, rgba(124,58,237,.06) 0%, transparent 60%); }
 
 .projects-row {
-  display:flex; gap:2rem; justify-content:center; flex-wrap:wrap;
+  display:flex; gap:1.2rem; justify-content:flex-start; flex-wrap:wrap;
+  width:100%; overflow-x:auto; padding-bottom:.5rem;
+  scrollbar-width:thin; scrollbar-color:rgba(124,58,237,.3) transparent;
 }
+.projects-row::-webkit-scrollbar { height:4px; }
+.projects-row::-webkit-scrollbar-track { background:transparent; }
+.projects-row::-webkit-scrollbar-thumb { background:rgba(124,58,237,.35); border-radius:4px; }
+.projects-grid-7 { flex-wrap:wrap; justify-content:center; }
 
 .flip-card {
-  width:340px; height:320px;
+  width:260px; height:300px;
   perspective:1000px;
+  flex-shrink:0;
 }
 .flip-inner {
   position:relative; width:100%; height:100%;
@@ -506,9 +514,22 @@ body:has(a:hover) #cursor-ring { width:52px; height:52px; border-color:var(--c);
 .ftag-dk  { background:rgba(36,150,237,.15); border-color:rgba(36,150,237,.3); color:#38bdf8; }
 .ftag-jk  { background:rgba(210,73,57,.15);  border-color:rgba(210,73,57,.3);  color:#f87171; }
 .ftag-soon{ background:rgba(255,255,255,.07); border-color:var(--border); color:var(--txt-2); }
+.ftag-ai  { background:rgba(167,139,250,.15); border-color:rgba(167,139,250,.3); color:#c4b5fd; }
+.ftag-rag { background:rgba(6,182,212,.15);   border-color:rgba(6,182,212,.3);   color:#67e8f9; }
+.ftag-ml  { background:rgba(16,185,129,.15);  border-color:rgba(16,185,129,.3);  color:#6ee7b7; }
+.ftag-cv  { background:rgba(251,146,60,.15);  border-color:rgba(251,146,60,.3);  color:#fdba74; }
+.ftag-re  { background:rgba(97,218,251,.15);  border-color:rgba(97,218,251,.3);  color:#67e8f9; }
+.ftag-nd  { background:rgba(51,153,51,.15);   border-color:rgba(51,153,51,.3);   color:#86efac; }
+.ftag-pg  { background:rgba(51,103,145,.15);  border-color:rgba(51,103,145,.3);  color:#93c5fd; }
+.ftag-sec { background:rgba(220,38,38,.15);   border-color:rgba(220,38,38,.3);   color:#fca5a5; }
 
-.flip-back h3 { font-family:'Space Grotesk',sans-serif; font-size:1.3rem; font-weight:700; }
-.flip-back p  { font-size:.88rem; color:var(--txt-2); line-height:1.7; }
+.flip-back h3 { font-family:'Space Grotesk',sans-serif; font-size:1.1rem; font-weight:700; }
+.flip-back p  { font-size:.8rem; color:var(--txt-2); line-height:1.65; }
+.fb-tech {
+  font-size:.68rem; color:var(--txt-3); font-family:'Space Mono',monospace;
+  background:rgba(255,255,255,.04); border:1px solid var(--border);
+  border-radius:6px; padding:.3rem .6rem; line-height:1.6;
+}
 
 .fb-links { display:flex; gap:.8rem; flex-wrap:wrap; }
 .fb-btn {
@@ -524,6 +545,10 @@ body:has(a:hover) #cursor-ring { width:52px; height:52px; border-color:var(--c);
 .fb-live:hover { color:#fff; }
 
 .flip-card-wip { opacity:.75; }
+
+/* fc-title smaller for 7-card grid */
+.fc-title { font-family:'Space Grotesk',sans-serif; font-size:1.1rem; font-weight:700; }
+.fc-icon  { width:46px; height:46px; font-size:1.2rem; }
 
 /* ══════════════════════
    EXPERIENCE
@@ -588,8 +613,8 @@ body:has(a:hover) #cursor-ring { width:52px; height:52px; border-color:var(--c);
 .contact-sub { font-size:1rem; color:var(--txt-2); max-width:480px; line-height:1.75; }
 
 .contact-cards {
-  display:grid; grid-template-columns:repeat(3,1fr);
-  gap:1.2rem; width:100%; max-width:900px;
+  display:grid; grid-template-columns:repeat(4,1fr);
+  gap:1rem; width:100%; max-width:1100px;
 }
 .ccard {
   display:flex; align-items:center; gap:1rem;
@@ -606,6 +631,7 @@ body:has(a:hover) #cursor-ring { width:52px; height:52px; border-color:var(--c);
 .email-ic { background:rgba(124,58,237,.15); color:var(--vl); }
 .li-ic    { background:rgba(0,119,181,.15);  color:#60a5fa; }
 .gh-ic    { background:rgba(255,255,255,.07); color:#e2e8f0; }
+.lc-ic    { background:rgba(255,161,22,.15);  color:#fbbf24; }
 .ccard-text { flex:1; display:flex; flex-direction:column; gap:.15rem; min-width:0; }
 .ccard-label { font-size:.68rem; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--txt-3); }
 .ccard-val   { font-size:.8rem; font-weight:500; color:var(--txt); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
@@ -636,13 +662,14 @@ body:has(a:hover) #cursor-ring { width:52px; height:52px; border-color:var(--c);
   .skill-cats { grid-template-columns:repeat(2,1fr); }
   .orbit-wrap { width:220px; height:220px; }
   .exp-layout { grid-template-columns:1fr; }
-  .contact-cards { grid-template-columns:1fr; max-width:480px; }
+  .contact-cards { grid-template-columns:repeat(2,1fr); max-width:700px; }
   .hero-content { margin-left:0; padding:0 6%; }
   .projects-row { flex-direction:column; align-items:center; }
   .flip-card { width:100%; max-width:380px; }
 }
 @media (max-width:600px) {
   .skill-cats { grid-template-columns:1fr; }
+  .contact-cards { grid-template-columns:1fr; max-width:400px; }
   .hero-cta { flex-direction:column; width:100%; }
   .btn-glow { justify-content:center; }
   .hero-stats { gap:1rem; flex-wrap:wrap; }
