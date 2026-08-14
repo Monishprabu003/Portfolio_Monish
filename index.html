@@ -71,7 +71,7 @@
       </nav>
 
       <!-- Right: Let's Talk CTA -->
-      <a href="mailto:monishprabu392005@gmail.com" class="btn-talk" id="btn-talk">
+      <a href="#contact" class="btn-talk" id="btn-talk">
         <span>Let's Talk</span>
         <i class="fa-solid fa-arrow-up-right-from-square"></i>
       </a>
@@ -104,7 +104,7 @@
       <p class="role-desc">
         Architecting intelligent systems, fine-tuning LLMs, and building high-performance AI agent workflows.
       </p>
-      <a href="mailto:monishprabu392005@gmail.com" class="btn-collaborate" id="btn-collaborate">
+      <a href="#contact" class="btn-collaborate" id="btn-collaborate">
         <span>Let's collaborate</span>
         <i class="fa-solid fa-arrow-up-right-from-square"></i>
       </a>
@@ -665,6 +665,151 @@
         </div>
 
       </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       7. CONTACT / COLLABORATION SECTION
+  ══════════════════════════════════════════ -->
+  <section class="contact-stage" id="contact">
+    
+    <!-- Watermark Background -->
+    <div class="contact-watermark">CONNECT</div>
+
+    <div class="contact-container">
+
+      <!-- Header -->
+      <div class="contact-header">
+        <div class="contact-pill-badge">
+          <i class="fa-solid fa-paper-plane"></i>
+          <span>GET IN TOUCH</span>
+        </div>
+        <h2 class="contact-title"><span class="slash-outline">//</span> LET'S BUILD SOMETHING EXTRAORDINARY</h2>
+        <p class="contact-subtitle">
+          Have an AI solution, full-stack application, or exciting opportunity in mind? Let's connect and turn ideas into high-impact intelligent systems.
+        </p>
+      </div>
+
+      <!-- Main Contact Grid -->
+      <div class="contact-main-grid">
+
+        <!-- Left Column: Direct Info & Quick Cards -->
+        <div class="contact-left-col">
+
+          <!-- Primary Email Card with Quick Copy -->
+          <div class="contact-card email-hero-card">
+            <div class="card-icon-circle"><i class="fa-solid fa-envelope"></i></div>
+            <div class="card-text-block">
+              <span class="card-mini-label">Direct Email</span>
+              <a href="mailto:monishprabu392005@gmail.com" class="card-primary-val" id="email-link">monishprabu392005@gmail.com</a>
+            </div>
+            <button class="copy-email-btn" id="copy-email-btn" title="Copy to clipboard">
+              <i class="fa-solid fa-copy"></i>
+              <span id="copy-btn-text">Copy</span>
+            </button>
+          </div>
+
+          <!-- Live Timezone & Status Card -->
+          <div class="contact-card timezone-card">
+            <div class="card-icon-circle"><i class="fa-solid fa-clock"></i></div>
+            <div class="card-text-block">
+              <span class="card-mini-label">Location &amp; Time</span>
+              <div class="card-primary-val">Coimbatore, India · <span id="live-ist-clock">--:--:-- IST</span></div>
+            </div>
+            <div class="live-dot-wrap" title="Available for opportunities">
+              <span class="status-pulse"></span>
+            </div>
+          </div>
+
+          <!-- Socials Grid (4 Tiles) -->
+          <div class="contact-socials-grid">
+            <a href="https://github.com/Monishprabu003" target="_blank" rel="noopener" class="contact-social-tile">
+              <i class="fa-brands fa-github"></i>
+              <div>
+                <span class="soc-name">GitHub</span>
+                <span class="soc-handle">@Monishprabu003</span>
+              </div>
+              <i class="fa-solid fa-arrow-up-right-from-square soc-arrow"></i>
+            </a>
+
+            <a href="https://www.linkedin.com/in/monish-prabu/" target="_blank" rel="noopener" class="contact-social-tile">
+              <i class="fa-brands fa-linkedin" style="color: #0a66c2;"></i>
+              <div>
+                <span class="soc-name">LinkedIn</span>
+                <span class="soc-handle">/in/monish-prabu</span>
+              </div>
+              <i class="fa-solid fa-arrow-up-right-from-square soc-arrow"></i>
+            </a>
+
+            <a href="https://leetcode.com/u/Macz_moni_/" target="_blank" rel="noopener" class="contact-social-tile">
+              <i class="fa-solid fa-code" style="color: #ffa116;"></i>
+              <div>
+                <span class="soc-name">LeetCode</span>
+                <span class="soc-handle">@Macz_moni_</span>
+              </div>
+              <i class="fa-solid fa-arrow-up-right-from-square soc-arrow"></i>
+            </a>
+
+            <a href="mailto:monishprabu392005@gmail.com" class="contact-social-tile">
+              <i class="fa-solid fa-file-arrow-down" style="color: #10b981;"></i>
+              <div>
+                <span class="soc-name">Resume</span>
+                <span class="soc-handle">Download PDF</span>
+              </div>
+              <i class="fa-solid fa-download soc-arrow"></i>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Right Column: Interactive Direct Message Composer -->
+        <div class="contact-right-col">
+          <form class="contact-form-glass" id="contact-form" onsubmit="event.preventDefault(); window.location.href='mailto:monishprabu392005@gmail.com?subject=' + encodeURIComponent(document.getElementById('form-subject').value || 'Collaboration Inquiry') + '&body=' + encodeURIComponent('Hi Monish,\n\n' + document.getElementById('form-message').value + '\n\nFrom: ' + document.getElementById('form-name').value + ' (' + document.getElementById('form-email').value + ')');">
+            <h3 class="form-title">Send a Quick Message</h3>
+            
+            <div class="form-row">
+              <div class="form-field">
+                <label for="form-name">Your Name</label>
+                <input type="text" id="form-name" placeholder="John Doe" required />
+              </div>
+              <div class="form-field">
+                <label for="form-email">Your Email</label>
+                <input type="email" id="form-email" placeholder="john@example.com" required />
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="form-subject">Subject / Project Area</label>
+              <input type="text" id="form-subject" placeholder="AI Engineering / GenAI / Full-Stack Project" />
+            </div>
+
+            <div class="form-field">
+              <label for="form-message">Message</label>
+              <textarea id="form-message" rows="4" placeholder="Tell me about your project, idea, or role..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn-send-message" id="btn-send-message">
+              <span>Send Message</span>
+              <i class="fa-solid fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+
+      </div>
+
+      <!-- Footer Bar -->
+      <footer class="contact-footer">
+        <div class="footer-left">
+          <span>© 2026 <strong>MONISH PRABU B</strong></span>
+          <span class="footer-dot">·</span>
+          <span>AI Engineer &amp; Full-Stack Developer</span>
+        </div>
+        <a href="#hero-stage" class="btn-back-to-top" id="btn-back-to-top" title="Back to top">
+          <span>Back to top</span>
+          <i class="fa-solid fa-arrow-up"></i>
+        </a>
+      </footer>
 
     </div>
   </section>

@@ -47,13 +47,14 @@
    2. EYELID SHUTTER & MULTILINGUAL GREETINGS ANIMATION
    ───────────────────────────────────────────────────────────── */
 (function initEyeGreetings() {
-  const eyeOverlay = document.getElementById('eye-loader');
-  const greetingText = document.getElementById('greeting-text');
-  const replayBtn = document.getElementById('btn-replay-intro');
+  const eyeOverlay         = document.getElementById('eye-loader');
+  const greetingText       = document.getElementById('greeting-text');
+  const greetingsContainer = document.querySelector('.greetings-container');
+  const replayBtn          = document.getElementById('btn-replay-intro');
 
-  if (!eyeOverlay || !greetingText) return;
+  if (!eyeOverlay || !greetingText || !greetingsContainer) return;
 
-  // Multilingual greetings list (English, French, Spanish, Hindi, Tamil, German, Italian, Portuguese, Japanese)
+  // Multilingual greetings list (English, Spanish, Tamil, French, Hindi, German, Italian, Portuguese, Japanese)
   const greetings = [
     'HELLO',
     'HOLA',
@@ -69,7 +70,7 @@
   let isPlaying = false;
 
   function runGreetingsSequence(onComplete) {
-    let index = 0;
+    let index = 1;
 
     function showNextWord() {
       if (index >= greetings.length) {
@@ -92,30 +93,41 @@
         index++;
 
         // Display timing per word (faster rhythm for cinematic feel)
-        setTimeout(showNextWord, 360);
+        setTimeout(showNextWord, 260);
       }, 140);
     }
 
-    showNextWord();
+    // Show initial word ('HELLO') for 300ms before starting transitions
+    setTimeout(showNextWord, 300);
   }
 
   function playEyeIntro() {
     if (isPlaying) return;
     isPlaying = true;
 
+    // Reset greeting to first word ('HELLO') and hide text during shutter closing
+    greetingText.textContent = greetings[0];
+    greetingText.classList.remove('word-exit', 'word-enter');
+    greetingsContainer.style.opacity = '0';
+    greetingsContainer.style.transition = 'opacity 0.25s ease';
+
     // 1. Close eyelids (curtains close)
     eyeOverlay.classList.remove('eye-open');
 
-    // 2. Run greetings word cycling
+    // 2. Only show text and run sequence after screen is ~90% closed (700ms)
     setTimeout(() => {
+      greetingsContainer.style.opacity = '1';
       runGreetingsSequence(() => {
+        // Fade out text before eyelids open
+        greetingsContainer.style.opacity = '0';
+
         // 3. Open eyelids (smooth eye-opening transition to reveal hero page)
         setTimeout(() => {
           eyeOverlay.classList.add('eye-open');
           isPlaying = false;
         }, 200);
       });
-    }, 400);
+    }, 700);
   }
 
   // Initial Sequence:
@@ -311,5 +323,102 @@
     row.style.transform = 'translateY(28px)';
     row.style.transition = 'opacity 0.55s var(--ease-smooth), transform 0.55s var(--ease-smooth)';
     observer.observe(row);
+  });
+})();
+
+/* ─────────────────────────────────────────────────────────────
+   8. CONTACT STAGE INTERACTION (Live Clock & Copy Email)
+   ───────────────────────────────────────────────────────────── */
+(function initContactInteractive() {
+  // 1. Live Coimbatore (IST) Clock
+  const clockEl = document.getElementById('live-ist-clock');
+  function updateISTClock() {
+    if (!clockEl) return;
+    const now = new Date();
+    // Format in IST (Asia/Kolkata)
+    const options = {
+      timeZone: 'Asia/Kolkata',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: true
+    };
+    clockEl.textContent = `${new Intl.DateTimeFormat('en-US', options).format(now)} IST`;
+  }
+  updateISTClock();
+  setInterval(updateISTClock, 1000);
+
+  // 2. Email Copy Button
+  const copyBtn = document.getElementById('copy-email-btn');
+  const copyText = document.getElementById('copy-btn-text');
+  const emailVal = 'monishprabu392005@gmail.com';
+
+  if (copyBtn && copyText) {
+    copyBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(emailVal);
+        const original = copyText.textContent;
+        copyText.textContent = 'Copied! ✓';
+        copyBtn.style.background = '#000000';
+        copyBtn.style.color = '#ffffff';
+
+        setTimeout(() => {
+          copyText.textContent = original;
+          copyBtn.style.background = '';
+          copyBtn.style.color = '';
+        }, 2000);
+      } catch (err) {
+        // Fallback for older browsers
+        window.location.href = `mailto:${emailVal}`;
+      }
+    });
+  }
+})();
+
+/* ─────────────────────────────────────────────────────────────
+   9. DYNAMIC NAV SCROLLSPY (Pill background on current section)
+   ───────────────────────────────────────────────────────────── */
+(function initNavScrollSpy() {
+  const navLinks = document.querySelectorAll('.floating-nav-menu .nav-item');
+  if (!navLinks.length) return;
+
+  const sections = [
+    { id: 'education', el: document.getElementById('education') },
+    { id: 'projects', el: document.getElementById('projects') },
+    { id: 'technologies', el: document.getElementById('technologies') },
+    { id: 'contact', el: document.getElementById('contact') }
+  ];
+
+  function onScrollSpy() {
+    const scrollPos = window.scrollY + 200;
+
+    let currentSectionId = '';
+    for (let i = sections.length - 1; i >= 0; i--) {
+      const sec = sections[i];
+      if (sec.el && sec.el.offsetTop <= scrollPos) {
+        currentSectionId = sec.id;
+        break;
+      }
+    }
+
+    navLinks.forEach(link => {
+      const href = link.getAttribute('href');
+      if (href === `#${currentSectionId}`) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', onScrollSpy, { passive: true });
+  onScrollSpy();
+
+  // Instant active switch on click
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.forEach(l => l.classList.remove('active'));
+      link.classList.add('active');
+    });
   });
 })();
