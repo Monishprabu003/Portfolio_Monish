@@ -672,7 +672,7 @@ body:has(button:hover) #cursor-ring {
 /* ── BOTTOM RIGHT: SOCIAL & RESUME PILLS ── */
 .hero-bottom-right {
   position: absolute;
-  bottom: 2.2rem;
+  bottom: 0.4rem;
   right: 4%;
   z-index: 10;
   display: flex;
