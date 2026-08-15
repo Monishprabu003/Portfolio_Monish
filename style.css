@@ -507,8 +507,8 @@ body:has(button:hover) #cursor-ring {
 /* ── SPEECH CLOUD BIO (Pops out of avatar head, right-pointing tail) ── */
 .hero-bottom-left {
   position: absolute;
-  /* sit just left of center / near avatar's upper-left */
-  top: clamp(22%, 26vh, 32%);
+  /* sit below the giant MR> MONISH typography */
+  top: clamp(48%, 52vh, 60%);
   left: max(3%, calc(50% - 580px));
   z-index: 20;
   max-width: 310px;
@@ -613,6 +613,60 @@ body:has(button:hover) #cursor-ring {
   font-weight: 450;
   color: #555555;
   line-height: 1.62;
+}
+
+/* ── SPEECH CLOUD RIGHT (FullStack AI Developer — left-pointing tail) ── */
+.hero-right-cloud {
+  position: absolute;
+  top: clamp(48%, 52vh, 60%);
+  right: max(3%, calc(50% - 580px));
+  z-index: 20;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  padding: 1.4rem 1.6rem 1.3rem;
+  background: #ffffff;
+  border: 1.5px solid rgba(0, 0, 0, 0.07);
+  border-radius: 28px 28px 6px 28px; /* bottom-right sharp corner for tail */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.09), 0 2px 8px rgba(0, 0, 0, 0.04);
+  animation: cloudFloat 4s ease-in-out infinite;
+  animation-delay: 0.8s; /* slight offset from left cloud */
+}
+
+/* Left-pointing tail (bottom-left corner toward avatar) */
+.hero-right-cloud::after {
+  content: '';
+  position: absolute;
+  bottom: -18px;
+  left: -2px;
+  width: 0;
+  height: 0;
+  border-right: 14px solid transparent;
+  border-top: 18px solid #ffffff;
+  filter: drop-shadow(-2px 4px 4px rgba(0,0,0,0.05));
+}
+
+.hero-right-cloud::before {
+  content: '';
+  position: absolute;
+  bottom: -21px;
+  left: -4px;
+  width: 0;
+  height: 0;
+  border-right: 16px solid transparent;
+  border-top: 21px solid rgba(0, 0, 0, 0.07);
+  z-index: -1;
+}
+
+.hero-right-cloud:hover {
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.12);
+  transform: translateY(-3px);
+}
+
+/* Dots reversed for right cloud (lg → sm, reading right-to-left toward avatar) */
+.cloud-dots-right {
+  justify-content: flex-end;
 }
 
 /* ── BOTTOM RIGHT: SOCIAL & RESUME PILLS ── */
@@ -764,8 +818,22 @@ body:has(button:hover) #cursor-ring {
   }
   /* Hide speech tail on mobile */
   .hero-bottom-left::after,
-  .hero-bottom-left::before {
+  .hero-bottom-left::before,
+  .hero-right-cloud::after,
+  .hero-right-cloud::before {
     display: none;
+  }
+  .hero-right-cloud {
+    position: relative;
+    top: auto;
+    bottom: auto;
+    right: auto;
+    max-width: 100%;
+    text-align: center;
+    align-items: center;
+    border-radius: 22px;
+    margin: 0.5rem auto 1rem;
+    animation: none;
   }
   .hero-bottom-right {
     position: relative;
@@ -1260,6 +1328,90 @@ body:has(button:hover) #cursor-ring {
   color: var(--txt-muted);
   line-height: 1.65;
   max-width: 860px;
+}
+
+/* ── Education Stat Pills (CGPA / Percentage) ── */
+.edu-stats-row {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.edu-stat-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  font-weight: 600;
+  border: 1.5px solid transparent;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.edu-stat-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.09);
+}
+
+.cgpa-pill {
+  background: rgba(16, 185, 129, 0.08);
+  border-color: rgba(16, 185, 129, 0.25);
+  color: #065f46;
+}
+
+.status-pill {
+  background: rgba(59, 130, 246, 0.07);
+  border-color: rgba(59, 130, 246, 0.22);
+  color: #1e40af;
+}
+
+.hsc-pill {
+  background: rgba(245, 158, 11, 0.08);
+  border-color: rgba(245, 158, 11, 0.28);
+  color: #92400e;
+}
+
+.stream-pill {
+  background: rgba(139, 92, 246, 0.08);
+  border-color: rgba(139, 92, 246, 0.22);
+  color: #4c1d95;
+}
+
+.stat-icon {
+  font-size: 0.85rem;
+}
+
+.stat-label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  opacity: 0.65;
+}
+
+.stat-value {
+  font-weight: 800;
+  font-size: 0.86rem;
+  letter-spacing: -0.2px;
+}
+
+.stat-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.active-dot {
+  background: #16a34a;
+  box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.7);
+  animation: pulseDot 2s infinite;
 }
 
 /* ── Floating Hover Preview Card (Matching Reference Video FX) ── */
