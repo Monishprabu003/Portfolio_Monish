@@ -504,79 +504,115 @@ body:has(button:hover) #cursor-ring {
   z-index: 2;
 }
 
-/* ── CLOUD-THEMED BIO CALLOUT (Avatar Left Head Area) ── */
+/* ── SPEECH CLOUD BIO (Pops out of avatar head, right-pointing tail) ── */
 .hero-bottom-left {
   position: absolute;
-  bottom: 12vh;
-  left: max(4%, calc(50% - 560px));
-  z-index: 10;
-  max-width: 360px;
+  /* sit just left of center / near avatar's upper-left */
+  top: clamp(22%, 26vh, 32%);
+  left: max(3%, calc(50% - 580px));
+  z-index: 20;
+  max-width: 310px;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  padding: 1.6rem 1.8rem 1.4rem;
-  background: rgba(255, 255, 255, 0.78);
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 28px 28px 4px 28px;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.07), 0 2px 10px rgba(0, 0, 0, 0.04);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  gap: 0.55rem;
+  padding: 1.4rem 1.6rem 1.3rem;
+  /* bright white cloud appearance */
+  background: #ffffff;
+  border: 1.5px solid rgba(0, 0, 0, 0.07);
+  border-radius: 28px 28px 28px 6px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.09), 0 2px 8px rgba(0, 0, 0, 0.04);
+  /* slight float animation */
+  animation: cloudFloat 4s ease-in-out infinite;
+}
+
+/* Right-pointing speech tail (bottom-right corner pointing toward avatar) */
+.hero-bottom-left::after {
+  content: '';
+  position: absolute;
+  bottom: -18px;
+  right: -2px;
+  width: 0;
+  height: 0;
+  border-left: 14px solid transparent;
+  border-top: 18px solid #ffffff;
+  filter: drop-shadow(2px 4px 4px rgba(0,0,0,0.05));
+}
+
+/* Thin border-match on tail */
+.hero-bottom-left::before {
+  content: '';
+  position: absolute;
+  bottom: -21px;
+  right: -4px;
+  width: 0;
+  height: 0;
+  border-left: 16px solid transparent;
+  border-top: 21px solid rgba(0, 0, 0, 0.07);
+  z-index: -1;
 }
 
 .hero-bottom-left:hover {
-  background: rgba(255, 255, 255, 0.92);
-  transform: translateY(-4px);
-  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.1);
-  border-color: rgba(0, 0, 0, 0.14);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.12);
+  transform: translateY(-3px);
+}
+
+@keyframes cloudFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-7px); }
+}
+
+/* Cloud escalating dots row (thought bubble bubbles) */
+.cloud-dots-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 5px;
+  margin-bottom: 0.1rem;
+}
+
+.cloud-dot {
+  background: #c8c8c8;
+  border-radius: 50%;
+  display: block;
+  animation: cloudDotBob 2.4s ease-in-out infinite;
+}
+
+.cloud-dot.sm {
+  width: 7px;
+  height: 7px;
+  animation-delay: 0s;
+}
+
+.cloud-dot.md {
+  width: 10px;
+  height: 10px;
+  animation-delay: 0.25s;
+}
+
+.cloud-dot.lg {
+  width: 14px;
+  height: 14px;
+  animation-delay: 0.5s;
+}
+
+@keyframes cloudDotBob {
+  0%, 100% { transform: translateY(0); opacity: 0.55; }
+  50% { transform: translateY(-4px); opacity: 1; }
 }
 
 .role-title {
   font-family: var(--font-heading);
-  font-size: clamp(2rem, 3.2vw, 2.6rem);
+  font-size: clamp(1.65rem, 2.6vw, 2.1rem);
   font-weight: 800;
-  letter-spacing: -0.8px;
+  letter-spacing: -0.6px;
   line-height: 1.1;
   color: #0a0a0a;
 }
 
 .role-desc {
-  font-size: 0.96rem;
+  font-size: 0.88rem;
   font-weight: 450;
-  color: #444444;
-  line-height: 1.6;
-}
-
-.btn-collaborate {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  padding: 0.65rem 1.4rem;
-  background: var(--btn-dark-bg);
-  color: var(--txt-light);
-  border-radius: var(--radius-pill);
-  font-family: var(--font-heading);
-  font-size: 0.86rem;
-  font-weight: 700;
-  width: fit-content;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
-  transition: all 0.28s var(--ease-smooth);
-  margin-top: 0.2rem;
-}
-
-.btn-collaborate:hover {
-  background: var(--btn-dark-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.28);
-}
-
-.btn-collaborate i {
-  font-size: 0.78rem;
-  transition: transform 0.2s ease;
-}
-
-.btn-collaborate:hover i {
-  transform: translate(2px, -2px);
+  color: #555555;
+  line-height: 1.62;
 }
 
 /* ── BOTTOM RIGHT: SOCIAL & RESUME PILLS ── */
@@ -716,13 +752,20 @@ body:has(button:hover) #cursor-ring {
   }
   .hero-bottom-left {
     position: relative;
+    top: auto;
     bottom: auto;
     left: auto;
     max-width: 100%;
     text-align: center;
     align-items: center;
-    border-radius: 24px;
-    margin: 1.5rem 0;
+    border-radius: 22px;
+    margin: 1.5rem auto;
+    animation: none;
+  }
+  /* Hide speech tail on mobile */
+  .hero-bottom-left::after,
+  .hero-bottom-left::before {
+    display: none;
   }
   .hero-bottom-right {
     position: relative;
