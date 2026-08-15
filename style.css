@@ -1645,19 +1645,24 @@ body:has(button:hover) #cursor-ring {
 }
 
 .contact-watermark {
-  position: absolute;
-  top: 12%;
-  left: 50%;
-  transform: translateX(-50%);
   font-family: var(--font-display);
-  font-size: clamp(4rem, 14vw, 12.5rem);
+  font-size: clamp(3.2rem, 9.5vw, 8.5rem);
   font-weight: 900;
-  letter-spacing: 16px;
-  color: rgba(0, 0, 0, 0.035);
+  letter-spacing: clamp(6px, 1.2vw, 14px);
+  color: rgba(0, 0, 0, 0.05);
   text-transform: uppercase;
   user-select: none;
   pointer-events: none;
   line-height: 1;
+  margin-bottom: 0.5rem;
+  display: block;
+  text-align: center;
+  width: 100%;
+  /* Remove absolute positioning — flow in-document like portfolio */
+  position: relative;
+  top: auto;
+  left: auto;
+  transform: none;
   white-space: nowrap;
   z-index: 0;
 }
@@ -1700,17 +1705,19 @@ body:has(button:hover) #cursor-ring {
 }
 
 .contact-title {
-  font-family: var(--font-display);
-  font-size: clamp(1.6rem, 3.6vw, 3rem);
-  font-weight: 900;
-  letter-spacing: -0.5px;
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 3.2vw, 2.5rem);
+  font-weight: 800;
+  letter-spacing: 1px;
   color: #000000;
   text-transform: uppercase;
-  margin-bottom: 0.8rem;
-  line-height: 1.15;
-  overflow-wrap: break-word;
-  word-break: break-word;
-  max-width: 100%;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .contact-subtitle {
