@@ -672,8 +672,8 @@ body:has(button:hover) #cursor-ring {
 /* ── BOTTOM RIGHT: SOCIAL & RESUME PILLS ── */
 .hero-bottom-right {
   position: absolute;
-  bottom: 0.4rem;
-  right: 4%;
+  bottom: 2rem;
+  right: 2.5%;
   z-index: 10;
   display: flex;
   flex-direction: column;
@@ -1515,52 +1515,83 @@ body:has(button:hover) #cursor-ring {
 .mystack-top-badge {
   display: inline-flex;
   align-items: center;
-  gap: 0.65rem;
-  padding: 0.6rem 1.45rem;
+  gap: 0.85rem;
+  padding: 0.85rem 2rem;
   background: var(--pill-bg);
   border: 1px solid rgba(0, 0, 0, 0.09);
   border-radius: var(--radius-pill);
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.06);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   font-family: var(--font-heading);
-  font-size: 0.88rem;
-  font-weight: 700;
-  letter-spacing: 0.8px;
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: 1px;
   text-transform: uppercase;
   color: #0a0a0a;
-  margin-bottom: 4rem;
+  margin-bottom: 4.5rem;
+  transition: transform 0.25s var(--ease-smooth), box-shadow 0.25s var(--ease-smooth);
+}
+
+.mystack-top-badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.09);
 }
 
 .mystack-top-badge i {
-  font-size: 0.95rem;
+  font-size: 1.25rem;
   color: #000000;
+  display: inline-block;
+  transform-origin: center center;
+  animation: spinAsterisk 6s linear infinite;
 }
 
-/* ── Stack Rows Layout (Left Title : Right Icons) ── */
+@keyframes spinAsterisk {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* ── Stack Rows Layout (Card Containers for Each Category) ── */
 .stack-rows {
   display: flex;
   flex-direction: column;
-  gap: 3.2rem;
+  gap: 1.6rem;
 }
 
 .stack-category-row {
   display: grid;
-  grid-template-columns: 340px 1fr;
-  gap: 3rem;
+  grid-template-columns: 280px 1fr;
+  gap: 2.5rem;
   align-items: center;
-  padding-bottom: 2.8rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 1.8rem 2.4rem;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 24px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.035);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stack-category-row:hover {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(0, 0, 0, 0.14);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.07);
+  transform: translateY(-3px);
 }
 
 .stack-category-row:last-child {
-  border-bottom: none;
-  padding-bottom: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  padding-bottom: 1.8rem;
 }
 
 .stack-cat-title {
   font-family: var(--font-display);
-  font-size: clamp(1.5rem, 2.2vw, 2.1rem);
+  font-size: clamp(1.4rem, 2vw, 1.85rem);
   font-weight: 900;
   letter-spacing: -0.5px;
   color: #0a0a0a;
@@ -1573,30 +1604,28 @@ body:has(button:hover) #cursor-ring {
 .stack-items-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.9rem 1.4rem;
+  gap: 0.85rem 1.2rem;
   align-items: center;
 }
 
 .stack-item {
   display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
-  padding: 0.55rem 1.1rem 0.55rem 0.55rem;
-  background: rgba(255, 255, 255, 0.65);
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  gap: 0.7rem;
+  padding: 0.5rem 1.1rem 0.5rem 0.5rem;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.07);
   border-radius: 14px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   user-select: none;
 }
 
 .stack-item:hover {
-  transform: translateY(-4px);
+  transform: translateY(-3px);
   background: #ffffff;
   border-color: rgba(0, 0, 0, 0.18);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
 }
 
 .stack-icon-box {
@@ -1623,7 +1652,9 @@ body:has(button:hover) #cursor-ring {
 @media (max-width: 900px) {
   .stack-category-row {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 1.4rem;
+    padding: 1.5rem 1.4rem;
+    border-radius: 20px;
   }
   .mystack-stage {
     padding: 4rem 5% 6rem;

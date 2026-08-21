@@ -56,9 +56,9 @@
 
   // Multilingual greetings list (English, Spanish, Tamil, French, Hindi, German, Italian, Portuguese, Japanese)
   const greetings = [
+    'வணக்கம்',
     'HELLO',
     'HOLA',
-    'வணக்கம்',
     'BONJOUR',
     'नमस्ते',
     'HALLO',
@@ -166,36 +166,46 @@
 })();
 
 /* ─────────────────────────────────────────────────────────────
-   4. SCROLL-DRIVEN DYNAMIC VERTICAL CHAINS (Up/Down Momentum)
+   4. SCROLL-DRIVEN DYNAMIC VERTICAL CHAINS (Up/Down Counter-Parallax)
    ───────────────────────────────────────────────────────────── */
 (function initScrollChains() {
   const trackLeft = document.getElementById('chain-track-left');
   const trackRight = document.getElementById('chain-track-right');
   if (!trackLeft || !trackRight) return;
 
-  let lastScrollY = window.scrollY;
-  let leftPos = -120;
-  let rightPos = -60;
+  // Each repeating cycle: 8 nodes * (62px node + 24px link) = 688px
+  const cycleHeight = 688;
+  const speed = 0.48;
+
+  let ticking = false;
+
+  function updateChains() {
+    const currentScrollY = window.scrollY;
+
+    // Scrolling down (currentScrollY increases):
+    // Left chain comes from TOP to DOWN (moves downwards: +)
+    const leftOffset = currentScrollY * speed;
+    const leftNormalized = -cycleHeight + (((leftOffset % cycleHeight) + cycleHeight) % cycleHeight);
+
+    // Right chain comes from DOWN to UP (moves upwards: -)
+    const rightOffset = -currentScrollY * speed;
+    const rightNormalized = -cycleHeight + (((rightOffset % cycleHeight) + cycleHeight) % cycleHeight);
+
+    trackLeft.style.transform = `translate3d(0, ${leftNormalized}px, 0)`;
+    trackRight.style.transform = `translate3d(0, ${rightNormalized}px, 0)`;
+
+    ticking = false;
+  }
 
   window.addEventListener('scroll', () => {
-    const currentScrollY = window.scrollY;
-    const scrollDelta = currentScrollY - lastScrollY;
-    lastScrollY = currentScrollY;
-
-    // Left chain moves UP when scrolling down (and down when scrolling up)
-    leftPos -= scrollDelta * 0.45;
-    // Right chain moves in counter-direction or alternate speed
-    rightPos += scrollDelta * 0.35;
-
-    // Wrap around for seamless infinite vertical chain loop
-    if (leftPos < -350) leftPos = 0;
-    if (leftPos > 50) leftPos = -300;
-    if (rightPos > 50) rightPos = -300;
-    if (rightPos < -350) rightPos = 0;
-
-    trackLeft.style.transform = `translate3d(0, ${leftPos}px, 0)`;
-    trackRight.style.transform = `translate3d(0, ${rightPos}px, 0)`;
+    if (!ticking) {
+      window.requestAnimationFrame(updateChains);
+      ticking = true;
+    }
   }, { passive: true });
+
+  // Initial position setup
+  updateChains();
 })();
 
 /* ─────────────────────────────────────────────────────────────
